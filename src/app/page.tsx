@@ -1,6 +1,6 @@
 "use client";
 
-import { SparklesCore } from "@/components/effects/sparkles";
+
 import { TypewriterEffect } from "@/components/effects/typewritter";
 import MaxWidthWrapper from "@/components/ui/max-width-wrapper";
 import { SOCIAL_LINKS } from "@/data/social-links";
@@ -9,6 +9,9 @@ import { Mail, Twitter } from "lucide-react";
 import Link from "next/link";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { GravityBox } from "@/components/effects/gravity-box";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { SparklesCore } from "@/components/effects/sparkles";
 import { useState } from "react";
 
 export default function Home() {
@@ -22,7 +25,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.8 }}
               className="relative"
             >
               <div
@@ -54,7 +57,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
               className="mt-4 px-4 md:px-0"
             >
               <TypewriterEffect
@@ -71,7 +74,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
               className="mt-8"
             >
               <div className="flex gap-6 justify-center items-center">

@@ -69,7 +69,7 @@ export function Chatbot({ isOpen, onClose }: ChatbotProps) {
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.9, y: 20 }}
-        className="bg-gray-100 dark:bg-gray-800 rounded-2xl w-96 h-[500px] flex flex-col relative shadow-xl"
+        className="bg-gray-100 dark:bg-gray-800 rounded-md w-96 h-[500px] flex flex-col relative shadow-xl"
       >
         <button
           onClick={onClose}
@@ -79,7 +79,7 @@ export function Chatbot({ isOpen, onClose }: ChatbotProps) {
         </button>
 
         {/* Header Section */}
-        <div className="flex items-center gap-3 p-6 border-b border-gray-200 dark:border-gray-700">
+        <div className="flex items-center gap-3 py-4 px-6 border-b border-gray-200 dark:border-gray-700">
           <FaRobot className="text-2xl text-blue-500" />
           <h3 className="text-2xl font-bold">AI Assistant</h3>
         </div>
@@ -114,7 +114,7 @@ export function Chatbot({ isOpen, onClose }: ChatbotProps) {
         </div>
 
         {/* Input Section */}
-        <div className="p-6">
+        <div className="py-2 px-6">
           <div className="flex gap-2">
             <input
               type="text"

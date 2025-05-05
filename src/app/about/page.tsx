@@ -72,7 +72,7 @@ export default function Home() {
       </nav>
 
       <section
-        className="min-h-screen flex flex-col justify-center max-sm:pt-24 relative"
+        className="min-h-screen flex flex-col justify-center max-sm:pt-24 relative pt-32"
         id="introduction"
       >
         <Intro activeSection={activeSection} fadeIn={fadeIn} />

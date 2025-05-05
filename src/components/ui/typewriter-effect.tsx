@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { motion, useAnimate, stagger, useInView } from "motion/react";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 
 export const TypewriterEffect = ({
@@ -17,6 +18,7 @@ export const TypewriterEffect = ({
   const [scope, animate] = useAnimate();
   const ref = useRef(null);
   const isInView = useInView(ref);
+  const router = useRouter();
 
   useEffect(() => {
     if (isInView) {
