@@ -46,8 +46,8 @@ export default function Home() {
                     Hey there, I&apos;m
                   </p>
                   <h1 className="flex max-sm:flex-col gap-3 text-6xl lg:text-7xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400 animate-text">
-                    <span>Yuvrajsinh</span>
-                    <span>Gohil</span>
+                    <span>Deep</span>
+                    <span>Patel</span>
                   </h1>
                 </div>
                 {/* </GravityBox> */}

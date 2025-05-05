@@ -125,7 +125,7 @@ export function Intro({
             className="flex items-start space-x-4 bg-gradient-to-r from-blue-900/20 to-transparent p-5 rounded-lg border-l-2 border-blue-400 shadow-md"
           >
             <p className="text-base sm:text-lg">
-              Hey, I&apos;m Yuvrajsinh! I&apos;m a 3rd-year Computer Science
+              Hey, I&apos;m Deep! I&apos;m a 3rd-year Computer Science
               B.Tech student at{" "}
               <MagicLink href="https://nirmauni.ac.in/">
                 Nirma University
@@ -144,7 +144,7 @@ export function Intro({
               Besides software development, I enjoy designing PCB circuits and
               modeling larger systems. Check out my projects{" "}
               <MagicLink href="https://www.youtube.com/@yuvrajsinh472/videos">
-                @Yuvrajsinh
+                @Deep
               </MagicLink>
               . I love blending software and hardware to bring ideas to life.
             </p>
