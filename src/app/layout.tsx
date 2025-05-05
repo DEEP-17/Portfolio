@@ -96,7 +96,7 @@ export default function RootLayout({
               className="relative group flex justify-center items-center expand-cursor"
             >
               <div
-                className="flex justify-center items-center rounded-full h-12 w-12 transition-all duration-200 overflow-hidden p-1.5 group-hover:bg-[#4dc6ff]/10 group-hover:shadow-lg group-hover:shadow-[#4dc6ff]/10"
+                className="flex justify-center items-center rounded-md h-12 w-12 transition-all duration-200 overflow-hidden p-1.5 group-hover:bg-[#4dc6ff]/10 group-hover:shadow-lg group-hover:shadow-[#4dc6ff]/10"
               >
                 <motion.button
                   onClick={() => setIsChatOpen(true)}
