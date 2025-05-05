@@ -15,7 +15,6 @@ const welcomeMessages = [
   { lang: "Japanese", message: "ようこそ！" },
   { lang: "Chinese", message: "欢迎！" },
   { lang: "Korean", message: "환영합니다!" },
-  { lang: "Arabic", message: "مرحبا!" },
   { lang: "Russian", message: "Добро пожаловать!" },
   { lang: "Hindi", message: "स्वागत है!" },
 ];
