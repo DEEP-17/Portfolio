@@ -114,8 +114,8 @@ export function Chatbot({ isOpen, onClose }: ChatbotProps) {
         </div>
 
         {/* Input Section */}
-        <div className="py-2 px-6">
-          <div className="flex gap-2">
+        <div className="py-2 pl-6 pr-2 flex items-center w-full">
+          <div className="flex items-center w-full">
             <input
               type="text"
               value={input}
@@ -128,10 +128,10 @@ export function Chatbot({ isOpen, onClose }: ChatbotProps) {
             <button
               onClick={handleSend}
               disabled={isLoading}
-              className="w-10 h-10 bg-blue-500 hover:bg-blue-600 text-white rounded-full transition-colors disabled:opacity-50 flex items-center justify-center"
+              className="w-10 h-10 bg-blue-500 hover:bg-blue-600 text-white rounded-full transition-colors disabled:opacity-50 flex items-center justify-center flex-shrink-0 ml-1"
             >
               <FaPaperPlane className="text-lg" />
-            </button>
+            </button>            
           </div>
         </div>
       </motion.div>

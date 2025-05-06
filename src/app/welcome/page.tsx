@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTheme } from "next-themes";
 import { Background } from "@/components/effects/background";
 
 
@@ -20,6 +21,7 @@ const welcomeMessages = [
 ];
 
 const WelcomePage = ({onAnimationComplete}:any) => {
+  const { theme } = useTheme();
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   
   useEffect(() => {
@@ -56,16 +58,13 @@ const WelcomePage = ({onAnimationComplete}:any) => {
          variants={pageVariants}
         initial="initial"
         exit="exit"
-        className="fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center text-white z-50"
+        className="fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center z-50 text-gray-800 dark:text-gray-200"
 
       >
         <div className="space-y-4">
           <AnimatePresence mode="wait">
             <motion.div key={currentIndex} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20, transition:{duration:0.25}}} className="text-center">
-                <p className="font-bold text-xl">
-                    {welcomeMessages[currentIndex].lang}
-                </p>
-                <p className="text-3xl">
+                <p className="text-6xl">
                     {welcomeMessages[currentIndex].message}
                 </p>
 
