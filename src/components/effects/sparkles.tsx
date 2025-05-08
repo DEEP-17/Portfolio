@@ -115,11 +115,7 @@ export const SparklesCore = ({
             if (distance < connectDistance) {
               const opacity = 1 - distance / connectDistance;
               ctx.beginPath();
-              ctx.strokeStyle = colorVariation
-                ? `rgba(${parseInt(p1.color!.slice(4, 7))}, ${parseInt(
-                    p1.color!.slice(9, 12)
-                  )}, ${parseInt(p1.color!.slice(14, 17))}, ${opacity * 0.2})`
-                : `rgba(255, 215, 0, ${opacity * 0.2})`;
+              ctx.strokeStyle = `rgba(0, 0, 0, 0)`; // Make connections invisible
               ctx.lineWidth = 0.5;
               ctx.moveTo(p1.x, p1.y);
               ctx.lineTo(p2.x, p2.y);

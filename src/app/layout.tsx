@@ -68,36 +68,8 @@ export default function RootLayout({
                     )}
                   </button>
                 </div>
-                <motion.div
-                  className="relative group flex justify-center items-center expand-cursor mb-2"
-                >
-                  <div className="flex justify-center items-center rounded-md h-12 w-12 transition-all duration-200 overflow-hidden p-1.5 group-hover:bg-[#4dc6ff]/10 group-hover:shadow-lg group-hover:shadow-[#4dc6ff]/10">
-                    <a
-                      href="https://github.com/yuvraj641"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group/social flex items-center justify-center rounded-full relative overflow-hidden w-full h-full"
-                    >
-                      <i className="fa-brands fa-github text-2xl transition-transform group-hover/social:scale-110"></i>
-                    </a>
-                  </div>
-                </motion.div>
-                <motion.div
-                  className="relative group flex justify-center items-center expand-cursor mb-2"
-                >
-                  <div className="flex justify-center items-center rounded-md h-12 w-12 transition-all duration-200 overflow-hidden p-1.5 group-hover:bg-[#4dc6ff]/10 group-hover:shadow-lg group-hover:shadow-[#4dc6ff]/10">
-                    <a
-                      href="https://www.linkedin.com/in/yuvrajsinh-gohil-476b2420b/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group/social flex items-center justify-center rounded-full relative overflow-hidden w-full h-full"
-                    >
-                      <i className="fa-brands fa-linkedin-in text-2xl transition-transform group-hover/social:scale-110"></i>
-                    </a>
-                  </div>
-                </motion.div>
                 <motion.div className="relative group flex justify-center items-center expand-cursor">
-                  <div className="flex justify-center items-center rounded-md h-12 w-12 transition-all duration-200 overflow-hidden p-1.5 group-hover:bg-[#4dc6ff]/10 group-hover:shadow-lg group-hover:shadow-[#4dc6ff]/10">
+                  <div className="flex justify-center items-center rounded-full h-12 w-12 transition-all duration-200 overflow-hidden p-1.5 group-hover:bg-[#4dc6ff]/10 group-hover:shadow-lg group-hover:shadow-[#4dc6ff]/10">
                     <motion.button
                       onClick={() => setIsChatOpen(true)}
                       className="group/social flex items-center justify-center rounded-full relative overflow-hidden w-full h-full"

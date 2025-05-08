@@ -10,12 +10,12 @@ export const SOCIAL_LINKS = [
     icon: "Linkedin",
   },
   {
+    name: "Twitter",    url: "https://x.com/deep_patel17",
+    icon: "Twitter",
+  },
+  {
     name: "Email",
     url: "mailto:pateldeep17042004@gmail.com",
     icon: "Mail",
-  },
-  {
-    name: "Twitter",    url: "https://x.com/deep_patel17",
-    icon: "Twitter",
   },
 ];
