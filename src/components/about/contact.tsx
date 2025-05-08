@@ -134,7 +134,7 @@ export function ContactUs({
         >
           <div 
             onClick={() => setIsModalOpen(true)}
-            className="block w-full"
+            className="block w-full cursor-pointer"
           >
             <div
               className={`
@@ -181,7 +181,7 @@ export function ContactUs({
         <motion.div
           {...fadeInUp}
           transition={{ delay: 0.2 }}
-          className="relative group flex justify-center items-center"
+          className="relative group flex justify-center items-center max-sm:mt-4"
         >
           <div
             className={`
@@ -254,7 +254,7 @@ export function ContactUs({
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            className="bg-gray-100 dark:bg-gray-800 rounded-2xl p-6 max-w-md w-full mx-4 relative"
+            className="bg-gray-100 dark:bg-gray-800 rounded-2xl p-6 max-w-md w-full mx-4 relative max-h-[90vh] overflow-y-auto"
           >
             <button
               onClick={() => setIsModalOpen(false)}

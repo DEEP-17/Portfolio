@@ -65,11 +65,11 @@ export function Chatbot({ isOpen, onClose }: ChatbotProps) {
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
-      <motion.div
+      <motion.div 
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.9, y: 20 }}
-        className="bg-gray-100 dark:bg-gray-800 rounded-md w-96 h-[500px] flex flex-col relative shadow-xl"
+ className="bg-gray-100 dark:bg-gray-800 rounded-md w-[95vw] h-[80vh] max-w-sm md:max-w-md lg:max-w-lg flex flex-col relative shadow-xl md:w-96 md:h-[500px]"
       >
         <button
           onClick={onClose}
@@ -86,7 +86,7 @@ export function Chatbot({ isOpen, onClose }: ChatbotProps) {
 
         {/* Chat Section */}
         <div
-          ref={chatOutputRef}
+ ref={chatOutputRef}
           className="flex-1 overflow-y-auto space-y-4 p-6 border-b border-gray-200 dark:border-gray-700"
         >
           {messages.map((msg, index) => (
@@ -94,7 +94,7 @@ export function Chatbot({ isOpen, onClose }: ChatbotProps) {
               key={index}
               className={`flex ${msg.isUser ? "justify-end" : "justify-start"}`}
             >
-              <div
+ <div
                 className={`max-w-[80%] p-3 rounded-lg ${
                   msg.isUser
                     ? "bg-blue-500 text-white rounded-br-none"

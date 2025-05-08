@@ -58,7 +58,7 @@ const WelcomePage = ({onAnimationComplete}:any) => {
          variants={pageVariants}
         initial="initial"
         exit="exit"
-        className="fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center z-50 text-gray-800 dark:text-gray-200"
+        className="fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center z-50 text-gray-800 dark:text-gray-200 p-4"
 
       >
         <div className="space-y-4">
