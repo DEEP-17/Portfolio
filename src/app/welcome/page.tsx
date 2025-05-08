@@ -53,37 +53,35 @@ const WelcomePage = ({onAnimationComplete}:any) => {
 
   return (
     <AnimatePresence>
-        <Background/>
+ <Background/>
       <motion.div
-         variants={pageVariants}
+ variants={pageVariants}
         initial="initial"
         exit="exit"
-        className="fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center z-50 text-gray-800 dark:text-gray-200 p-4"
+ className="fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center z-50 text-gray-800 dark:text-gray-200 p-4 space-y-8 md:space-y-16"
+ >
+ <div className="flex justify-center items-center flex-grow">
+ <img src="/images/logo.png" alt="" className='rounded-full h-40 w-40 md:h-64 md:w-64 object-cover'/>
+ </div>
 
-      >
-        <div className="space-y-4">
-          <AnimatePresence mode="wait">
-            <motion.div key={currentIndex} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20, transition:{duration:0.25}}} className="text-center">
-                <p className="text-6xl">
-                    {welcomeMessages[currentIndex].message}
-                </p>
-
-
-
-
-            </motion.div>
-          </AnimatePresence>
-        </div>
+      {/* Move welcome text and loading line to the bottom */}
+ <div className="flex flex-col items-center mt-auto w-full">
+ <AnimatePresence mode="wait">
+ <motion.div key={currentIndex} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20, transition:{duration:0.25}}} className="text-center">
+            <p className="text-4xl md:text-6xl">
+              {welcomeMessages[currentIndex].message}
+            </p>
+          </motion.div>
+        </AnimatePresence>
         <motion.div
-          className="w-full h-0.5 bg-blue-500 mt-8 origin-center"
-          variants={lineVariants}
-          initial="initial"
+ className="w-full h-0.5 bg-blue-500 mt-8 origin-center"
+        variants={lineVariants}
+        initial="initial"
           animate="animate"
         />
-        
-      </motion.div>
-    </AnimatePresence>
-  );
+      </div>
+    </motion.div>
+ </AnimatePresence>
+ );
 };
-
 export default WelcomePage;
