@@ -8,6 +8,8 @@ interface MagicLinkProps {
   children: React.ReactNode;
   className?: string;
   external?: boolean;
+  target?: string;
+  rel?: string;
 }
 
 export function MagicLink({
@@ -15,6 +17,9 @@ export function MagicLink({
   children,
   className = "",
   external = false,
+  target,
+  rel,
+  ...props
 }: MagicLinkProps) {
   const [isHovered, setIsHovered] = useState(false);
   const linkRef = useRef<HTMLAnchorElement>(null);
@@ -69,10 +74,12 @@ export function MagicLink({
       <LinkComponent
         href={href}
         ref={linkRef}
-        className={`relative inline-block ${className}`}
+        className={`relative z-10 inline-block ${className}`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        {...externalProps}
+        target={target || (external ? "_blank" : undefined)}
+        rel={rel || (external ? "noopener noreferrer" : undefined)}
+        {...props}
       >
         <span className="relative z-10 magic">{children}</span>
 

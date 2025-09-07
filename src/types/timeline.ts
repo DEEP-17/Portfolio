@@ -5,6 +5,7 @@ export interface TimelineItem {
   title: string;
   description: string;
   date: string;
+  type?: 'education' | 'work' | string;
   url?: string;
   icon?: ReactNode;
   color?: string;

@@ -42,97 +42,99 @@ export function Intro({
       animate={activeSection === "introduction" ? "visible" : "hidden"}
       className="max-w-6xl mx-auto relative"
     >
-      <motion.h1
-        className="flex gap-2 items-center text-4xl sm:text-5xl font-bold mb-10 sm:mb-16"
+      <motion.h2
+        className="text-3xl font-bold text-center mb-12"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <motion.div
-          animate={{ x: [10, 0], opacity: [0, 1] }}
-          transition={{ duration: 0.3, delay: 0.1 }}
-        >
-          <IoIosArrowForward className="text-4xl text-blue-400 sm:text-5xl max-sm:hidden" />
-        </motion.div>
-        <span className="max-sm:mx-auto">About Me</span>
-      </motion.h1>
+        About Me
+      </motion.h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-        <motion.div
-          className="hidden md:flex md:col-span-1 justify-center items-center relative"
-          variants={item}
-        >
-          <div className="relative w-full h-full min-h-[300px] flex items-center justify-center">
-            <motion.div className="relative z-10 flex flex-col items-center gap-8">
-              <motion.div
-                className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg"
-                whileHover={{ rotate: 5, scale: 1.05 }}
-              >
-                <FaCode className="text-4xl text-white" />
-              </motion.div>
-
-              <motion.div
-                className="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-lg"
-                whileHover={{ rotate: -5, scale: 1.05 }}
-              >
-                <FaMicrochip className="text-4xl text-white" />
-              </motion.div>
-
-              <motion.div
-                className="w-20 h-20 rounded-2xl bg-gradient-to-br from-green-500 to-blue-600 flex items-center justify-center shadow-lg"
-                whileHover={{ rotate: 5, scale: 1.05 }}
-              >
-                <FaLightbulb className="text-4xl text-white" />
-              </motion.div>
-            </motion.div>
-          </div>
-        </motion.div>
-
+      <div className="max-w-4xl mx-auto">
         <motion.div
           variants={container}
-          className="space-y-6 sm:space-y-8 md:col-span-2"
+          className="space-y-6"
         >
+          {/* First Card */}
           <motion.div
             variants={item}
-            whileHover={{ x: 10 }}
-            className="flex items-start space-x-4 bg-gradient-to-r from-blue-900/20 to-transparent p-5 rounded-lg border-l-2 border-blue-400 shadow-md"
+            className="relative p-6 rounded-xl bg-gray-600/10 dark:bg-gray-600/20 backdrop-blur-sm hover:border-blue-500/50 group hover:shadow-lg hover:shadow-blue-500/20"
           >
-            <p className="text-base sm:text-lg">
-              Hey, I&apos;m Deep! I&apos;m a 3rd-year Computer Science
-              B.Tech student at{" "}
-              <MagicLink href="https://nirmauni.ac.in/">
-                Nirma University
-              </MagicLink>{" "}
-              with a minor in Cyber Physical Systems. I&apos;m passionate about
-              creating innovative solutions that make a difference.
-            </p>
+            <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-r from-blue-400 to-cyan-500 blur-xl" />
+            <div className="relative">
+              <div className="flex items-center mb-4">
+                <div className="text-2xl text-blue-400 group-hover:opacity-100 transition-all duration-300 mr-3">
+                  <FaCode />
+                </div>
+                <h3 className="text-xl font-bold text-white">
+                  Introduction
+                </h3>
+              </div>
+              <div className="ml-9">
+                <p className="text-gray-400">
+                  Hey, I'm Deep! I'm a 3rd-year Computer Science B.Tech student at{' '}
+                  <MagicLink href="https://nirmauni.ac.in/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-cyan-300 transition-colors">
+                    Nirma University
+                  </MagicLink>{' '}
+                  with a minor in Cyber Physical Systems. I'm passionate about
+                  creating innovative solutions that make a difference.
+                </p>
+              </div>
+            </div>
           </motion.div>
 
+          {/* Second Card */}
           <motion.div
             variants={item}
-            whileHover={{ x: 10 }}
-            className="flex items-start space-x-4 bg-gradient-to-r from-purple-900/20 to-transparent p-5 rounded-lg border-l-2 border-purple-400 shadow-md"
+            className="relative p-6 rounded-xl bg-gray-600/10 dark:bg-gray-600/20 backdrop-blur-sm hover:border-purple-500/50 group hover:shadow-lg hover:shadow-purple-500/20"
           >
-            <p className="text-base sm:text-lg">
-              Besides software development, I enjoy designing PCB circuits and
-              modeling larger systems. Check out my projects{" "}
-              <MagicLink href="https://www.youtube.com/@yuvrajsinh472/videos">
-                @Deep
-              </MagicLink>
-              . I love blending software and hardware to bring ideas to life.
-            </p>
+            <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-r from-purple-400 to-indigo-500 blur-xl" />
+            <div className="relative">
+              <div className="flex items-center mb-4">
+                <div className="text-2xl text-purple-400 group-hover:opacity-100 transition-all duration-300 mr-3">
+                  <FaMicrochip />
+                </div>
+                <h3 className="text-xl font-bold text-white">
+                  Skills & Interests
+                </h3>
+              </div>
+              <div className="ml-9">
+                <p className="text-gray-400">
+                  Besides software development, I enjoy designing PCB circuits and
+                  modeling larger systems. Check out my projects{' '}
+                  <MagicLink href="https://www.youtube.com/@yuvrajsinh472/videos" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-indigo-300 transition-colors">
+                    @Deep
+                  </MagicLink>
+                  . I love blending software and hardware to bring ideas to life.
+                </p>
+              </div>
+            </div>
           </motion.div>
 
+          {/* Third Card */}
           <motion.div
             variants={item}
-            whileHover={{ x: 10 }}
-            className="flex items-start space-x-4 bg-gradient-to-r from-green-900/20 to-transparent p-5 rounded-lg border-l-2 border-green-400 shadow-md"
+            className="relative p-6 rounded-xl bg-gray-600/10 dark:bg-gray-600/20 backdrop-blur-sm hover:border-cyan-500/50 group hover:shadow-lg hover:shadow-cyan-500/20"
           >
-            <p className="text-base sm:text-lg">
-              In my free time, I participate in hackathons, enhance my coding
-              skills, and stay updated with industry trends. I believe in
-              lifelong learning and embracing new challenges.
-            </p>
+            <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-r from-cyan-400 to-teal-500 blur-xl" />
+            <div className="relative">
+              <div className="flex items-center mb-4">
+                <div className="text-2xl text-cyan-400 group-hover:opacity-100 transition-all duration-300 mr-3">
+                  <FaLightbulb />
+                </div>
+                <h3 className="text-xl font-bold text-white">
+                  Philosophy & Approach
+                </h3>
+              </div>
+              <div className="ml-9">
+                <p className="text-gray-400">
+                  In my free time, I participate in hackathons, enhance my coding
+                  skills, and stay updated with industry trends. I believe in
+                  lifelong learning and embracing new challenges.
+                </p>
+              </div>
+            </div>
           </motion.div>
         </motion.div>
       </div>

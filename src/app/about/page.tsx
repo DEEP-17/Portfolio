@@ -82,7 +82,12 @@ export default function Home() {
       <section className="py-24" id="education">
         <div>
           <h2 className="text-3xl font-bold text-center mb-12">Education</h2>
-          <Timeline items={education} sectionTitle="Education" activeSection={activeSection} sectionId="education" />
+          <Timeline 
+            items={education} 
+            sectionTitle="education" 
+            activeSection={activeSection} 
+            fadeIn={fadeIn} 
+          />
         </div>
       </section>
 
@@ -91,7 +96,12 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-12">
             Work Experience
           </h2>
-          <Timeline items={experience} sectionTitle="Work Experience" activeSection={activeSection} sectionId="experience" />
+          <Timeline 
+            items={experience} 
+            sectionTitle="experience" 
+            activeSection={activeSection} 
+            fadeIn={fadeIn} 
+          />
         </div>
       </section>
 
