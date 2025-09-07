@@ -1,6 +1,6 @@
 import { IoIosArrowForward } from "react-icons/io";
 import { FaCode, FaLightbulb, FaMicrochip } from "react-icons/fa6";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { MagicLink } from "../effects/magiclink";
 
 export function Intro({
@@ -42,33 +42,6 @@ export function Intro({
       animate={activeSection === "introduction" ? "visible" : "hidden"}
       className="max-w-6xl mx-auto relative"
     >
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-36 left-36 w-40 h-40 rounded-full bg-purple-400/60 blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.5, 0.7, 0.5],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-        />
-        {/* <motion.div
-          className="absolute bottom-20 right-10 w-40 h-40 rounded-full bg-blue-500/40 blur-3xl"
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.4, 0.6, 0.4],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-        /> */}
-      </div>
-
       <motion.h1
         className="flex gap-2 items-center text-4xl sm:text-5xl font-bold mb-10 sm:mb-16"
         initial={{ opacity: 0, y: 20 }}

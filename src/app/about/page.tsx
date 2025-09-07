@@ -3,9 +3,11 @@
 import { ContactUs } from "@/components/about/contact";
 import { Intro } from "@/components/about/intro";
 import { Skills } from "@/components/about/skills";
+import { Timeline } from "@/components/about/timeline/timeline";
 import MaxWidthWrapper from "@/components/ui/max-width-wrapper";
+import { education, experience } from "@/data/timeline";
 import { useEffect, useState } from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<string>("introduction");
@@ -26,7 +28,7 @@ export default function Home() {
         });
       },
       {
-        threshold: 0.5,
+        threshold: 0.3,
       }
     );
 
@@ -42,7 +44,7 @@ export default function Home() {
 
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
+    whileInView: { opacity: 1, y: 0 },
     viewport: { once: true },
     transition: { duration: 0.8, ease: "easeOut" },
   };
@@ -57,14 +59,13 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
-          {["introduction", "skills", "contact"].map((section, index) => (
+          {["introduction", "education", "experience", "skills", "contact"].map((section, index) => (
             <motion.div
               key={section}
               className={`h-3 w-3 rounded-full cursor-pointer transition-all duration-300 ${
                 activeSection === section ? "bg-white scale-125" : "bg-gray-600"
               }`}
               onClick={() => scrollToSection(index)}
-              viewport={{ once: true }}
               whileHover={{ scale: 1.2 }}
             />
           ))}
@@ -76,6 +77,22 @@ export default function Home() {
         id="introduction"
       >
         <Intro activeSection={activeSection} fadeIn={fadeIn} />
+      </section>
+
+      <section className="py-24" id="education">
+        <div>
+          <h2 className="text-3xl font-bold text-center mb-12">Education</h2>
+          <Timeline items={education} sectionTitle="Education" activeSection={activeSection} sectionId="education" />
+        </div>
+      </section>
+
+      <section className="py-24" id="experience">
+        <div>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Work Experience
+          </h2>
+          <Timeline items={experience} sectionTitle="Work Experience" activeSection={activeSection} sectionId="experience" />
+        </div>
       </section>
 
       <section
