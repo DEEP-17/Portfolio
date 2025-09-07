@@ -46,6 +46,7 @@ export function TimelineItem({ item, index, isLast, activeSection, sectionId }: 
               initial="hidden"
               animate={isActive ? "visible" : "hidden"}
               variants={cardVariants}
+              whileHover={{ y: -5 }}
             >
               <TimelineCard item={item} />
             </motion.div>
@@ -68,6 +69,7 @@ export function TimelineItem({ item, index, isLast, activeSection, sectionId }: 
               initial="hidden"
               animate={isActive ? "visible" : "hidden"}
               variants={cardVariants}
+              whileHover={{ y: -5 }}
             >
               <TimelineCard item={item} />
             </motion.div>
@@ -92,6 +94,7 @@ export function TimelineItem({ item, index, isLast, activeSection, sectionId }: 
             initial="hidden"
             animate={isActive ? "visible" : "hidden"}
             variants={mobileCardVariants}
+            whileHover={{ y: -5 }}
           >
             <TimelineCard item={item} />
           </motion.div>
@@ -129,8 +132,22 @@ function TimelineCard({ item }: { item: TimelineItemType }) {
 
   return (
     <div
-      className={`relative p-6 rounded-xl bg-gray-800/20 backdrop-blur-sm border border-gray-700/50 shadow-lg`}
+      className={`
+        relative p-6 rounded-xl
+        bg-gray-600/10 dark:bg-gray-600/20 backdrop-blur-sm
+        hover:border-blue-500/50
+        group
+        hover:shadow-lg hover:shadow-blue-500/20
+      `}
     >
+      <div
+        className={`
+          absolute inset-0 rounded-xl opacity-0
+          group-hover:opacity-20 transition-opacity duration-500
+          bg-gradient-to-r from-cyan-400 to-blue-500
+          blur-xl
+        `}
+      />
       <div className="relative">
         <div className="flex items-center mb-2">
           {item.icon && <div className="text-2xl text-blue-400 mr-3">{item.icon}</div>}
@@ -161,7 +178,7 @@ function TimelineCard({ item }: { item: TimelineItemType }) {
                 >
                   {course}
                 </span>
-              ))}
+                            ))}
             </div>
           </div>
         ) : (
