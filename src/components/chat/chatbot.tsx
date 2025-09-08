@@ -20,6 +20,19 @@ export function Chatbot({ isOpen, onClose }: ChatbotProps) {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const chatOutputRef = useRef<HTMLDivElement>(null);
+  const [hasWelcomed, setHasWelcomed] = useState(false);
+
+  // Add welcome message when chat opens
+  useEffect(() => {
+    if (isOpen && !hasWelcomed) {
+      const welcomeMessage: Message = { 
+        text: "Hello! I'm your AI assistant. How can I help you today?", 
+        isUser: false 
+      };
+      setMessages([welcomeMessage]);
+      setHasWelcomed(true);
+    }
+  }, [isOpen, hasWelcomed]);
 
   // Scroll to bottom when messages change
   useEffect(() => {
