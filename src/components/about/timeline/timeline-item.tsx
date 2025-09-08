@@ -245,7 +245,7 @@ function TimelineCard({ item, isActive, index }: { item: TimelineItemType; isAct
                     {part}
                   </span>
                 ) : (
-                  <span className="group-hover:text-gray-300 transition-colors">
+                  <span key={i} className="group-hover:text-gray-300 transition-colors">
                     {part}
                   </span>
                 )

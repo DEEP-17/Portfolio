@@ -272,6 +272,7 @@ export const SparklesCore = ({
     connectParticles,
     connectDistance,
     colorVariation,
+    mousePosition,
   ]);
 
   return (

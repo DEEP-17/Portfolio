@@ -73,11 +73,11 @@ export function Intro({
               </div>
               <div className="ml-9">
                 <p className="text-gray-400">
-                  Hey, I'm Deep! I'm a 3rd-year Computer Science B.Tech student at{' '}
+                  Hey, I&apos;m Deep! I&apos;m a 3rd-year Computer Science B.Tech student at{' '}
                   <MagicLink href="https://nirmauni.ac.in/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-cyan-300 transition-colors">
                     Nirma University
                   </MagicLink>{' '}
-                  with a minor in Cyber Physical Systems. I'm passionate about
+                  with a minor in Cyber Physical Systems. I&apos;m passionate about
                   creating innovative solutions that make a difference.
                 </p>
               </div>

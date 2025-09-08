@@ -15,9 +15,11 @@ export const GravityBox = ({ children, isActive }: GravityBoxProps) => {
   const [isGravityActive, setIsGravityActive] = useState(false);
 
   useEffect(() => {
+    const currentSceneRef = sceneRef.current;
+    
     if (
       !isActive ||
-      !sceneRef.current ||
+      !currentSceneRef ||
       !contentRef.current ||
       !containerRef.current ||
       isGravityActive
@@ -32,8 +34,10 @@ export const GravityBox = ({ children, isActive }: GravityBoxProps) => {
     });
 
     // Setup render with proper canvas sizing
+    if (!currentSceneRef) return;
+    
     const render = Matter.Render.create({
-      element: sceneRef.current,
+      element: currentSceneRef,
       engine: engine,
       options: {
         width: containerBounds.width,
@@ -190,11 +194,11 @@ export const GravityBox = ({ children, isActive }: GravityBoxProps) => {
       Matter.Render.stop(render);
       Matter.Runner.stop(runner);
       render.canvas.remove();
-      if (sceneRef.current) {
-        sceneRef.current.innerHTML = "";
+      if (currentSceneRef) {
+        currentSceneRef.innerHTML = "";
       }
     };
-  }, [isActive]);
+  }, [isActive, isGravityActive]);
 
   return (
     <div className="relative" ref={containerRef}>

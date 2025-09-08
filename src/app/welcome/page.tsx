@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 import { Background } from "@/components/effects/background";
 
 
@@ -60,15 +61,21 @@ const WelcomePage = ({onAnimationComplete}:any) => {
  className="fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center z-50 text-gray-800 dark:text-gray-200 p-4 space-y-8 md:space-y-16"
  >
  <div className="flex justify-center items-center flex-grow">
- <div className="rounded-full p-1 border-2 border-blue-400">
- <img src="/images/deep.png" alt="" className='rounded-full h-80 w-80 md:h-96 md:w-96 object-cover'/>
+ <div className="rounded-full p-1 border-2 border-blue-400 h-80 w-80 md:h-96 md:w-96 relative overflow-hidden">
+   <Image 
+     src="/images/deep.png" 
+     alt="Deep's profile" 
+     fill
+     className="rounded-full object-cover"
+     priority
+   />
  </div>
  </div>
 
       {/* Move welcome text and loading line to the bottom */}
  <div className="flex flex-col items-center mt-auto w-full">
  <AnimatePresence mode="wait">
- <motion.div key={currentIndex} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20, transition:{duration:0.25}}} className="text-center">
+ <motion.div key={`${currentIndex}-${welcomeMessages[currentIndex].lang}`} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20, transition:{duration:0.25}}} className="text-center">
             <p className="text-4xl md:text-6xl">
               {welcomeMessages[currentIndex].message}
             </p>
