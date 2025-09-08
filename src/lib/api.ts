@@ -1,6 +1,6 @@
 export async function sendChatMessage(message: string): Promise<{ response?: string; error?: string }> {
     try {
-      const res = await fetch("http://localhost:8000/chat", {
+      const res = await fetch("https://chatbot-vzbh.onrender.com/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
