@@ -5,7 +5,7 @@ export const education: TimelineItem[] = [
   {
     id: 1,
     title: "Bachelor of Technology - Computer Science",
-    description: "Nirma University, Ahmedabad\nGPA: 8.57/10",
+    description: "Nirma University, Ahmedabad\nGPA: 8.59/10",
     date: "2022-2026",
     type: 'education',
     icon: <FaUniversity />,

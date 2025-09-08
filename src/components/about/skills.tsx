@@ -25,46 +25,46 @@ export function Skills({
 }) {
   const skills = [
     {
+      icon: <FaTerminal />,
+      title: "Programming Languages",
+      tags: ["C++", "Java", "Python", "JavaScript", "Bash", "SQL"],
+      color: "from-purple-400 to-indigo-500",
+      shadowColor: "purple",
+    },
+    {
       icon: <FaCode />,
-      title: "Frontend",
-      tags: ["React", "Next.js", "TypeScript", "TailwindCSS"],
+      title: "Web Development & Frameworks",
+      tags: ["React", "Node.js", "Tailwind CSS", "Bootstrap", "MongoDB"],
       color: "from-cyan-400 to-blue-500",
       shadowColor: "cyan",
     },
     {
       icon: <FaDatabase />,
-      title: "Backend",
-      tags: ["Node.js", "ElysiaJS", "Trpc", "PostgreSQL", "MongoDB"],
+      title: "Data Streaming & Messaging",
+      tags: ["Kafka", "SQL Plus"],
       color: "from-green-400 to-emerald-500",
       shadowColor: "green",
     },
     {
-      icon: <FaTerminal />,
-      title: "Programming Languages",
-      tags: ["TypeScript", "C++", "Python", "Rust", "Go", "Java"],
-      color: "from-purple-400 to-indigo-500",
-      shadowColor: "purple",
-    },
-    {
-      icon: <MonitorCog />,
-      title: "Tools",
-      tags: ["Git", "VS Code", "Linux", "Docker", "Shell"],
+      icon: <FaLightbulb />,
+      title: "DevOps & CI/CD",
+      tags: ["Docker", "Kubernetes", "Jenkins", "GitHub Actions", "GitLab CI/CD"],
       color: "from-amber-400 to-orange-500",
       shadowColor: "amber",
     },
     {
-      icon: <FaLightbulb />,
-      title: "Interests",
-      tags: ["Webdev", "Automation", "SystemDesign"],
-      color: "from-violet-400 to-fuchsia-500",
-      shadowColor: "violet",
+      icon: <FaCloud />,
+      title: "Cloud & Monitoring",
+      tags: ["AWS", "Grafana", "Prometheus", "Loki"],
+      color: "from-blue-400 to-cyan-500",
+      shadowColor: "blue",
     },
     {
-      icon: <FaCloud />,
-      title: "IoT & Embedded",
-      tags: ["Arduino", "Raspberry Pi", "ESP32"],
-      color: "from-blue-400 to-sky-500",
-      shadowColor: "blue",
+      icon: <MonitorCog />,
+      title: "Networking & Tools",
+      tags: ["Wireshark", "Visual Studio Code", "IntelliJ IDEA", "Kali Linux"],
+      color: "from-rose-400 to-pink-500",
+      shadowColor: "rose",
     },
   ];
 
@@ -83,7 +83,7 @@ export function Skills({
       </motion.h2>
 
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full"
         viewport={{ once: true }}
         variants={{
           hidden: { opacity: 0 },
@@ -103,11 +103,11 @@ export function Skills({
             }}
             whileHover={{ y: -5 }}
             className={`
-              relative p-6 rounded-xl
+              relative p-4 rounded-xl h-auto min-h-[180px]
               bg-gray-600/10 dark:bg-gray-600/20 backdrop-blur-sm
               hover:border-${skill.shadowColor}-500/50
-              group
-              hover:shadow-lg hover:shadow-${skill.shadowColor}-500/20
+              group hover:shadow-lg hover:shadow-${skill.shadowColor}-500/20
+              min-w-0 flex flex-col justify-between
             `}
           >
             <div
@@ -119,11 +119,11 @@ export function Skills({
             `}
             />
 
-            <div className="relative flex flex-col gap-4">
-              <div className="flex justify-between items-center">
+            <div className="relative flex flex-col gap-3">
+              <div className="flex justify-between items-center mb-3">
                 <h3
                   className={`
-                  text-xl font-semibold mb-2
+                  text-xl font-semibold
                   bg-gradient-to-r ${skill.color}
                   bg-clip-text text-transparent
                 `}
@@ -133,7 +133,7 @@ export function Skills({
                 <div
                   className={`
                 min-w-12 h-12 flex items-center justify-center
-                rounded-lg text-2xl
+                rounded-lg text-2xl -mt-1
                 bg-gradient-to-r ${skill.color}
                 group-hover:scale-110 transition-transform
               `}
@@ -142,12 +142,12 @@ export function Skills({
                 </div>
               </div>
               <div>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5">
                   {skill.tags.map((tag, i) => (
                     <span
                       key={i}
                       className={`
-                        px-3 py-1 text-xs rounded-full
+                        px-2.5 py-0.5 text-xs rounded-full
                         backdrop-blur-sm bg-gray-400/10
                         group-hover:border-${skill.shadowColor}-500/30
                         group-hover:text-${skill.shadowColor}-400

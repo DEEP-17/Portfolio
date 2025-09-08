@@ -73,11 +73,11 @@ export function Intro({
               </div>
               <div className="ml-9">
                 <p className="text-gray-400">
-                  Hey, I&apos;m Deep! I&apos;m a 3rd-year Computer Science B.Tech student at{' '}
+                  Hey, I&apos;m Deep! I&apos;m a 4th-year Computer Science B.Tech student at{' '}
                   <MagicLink href="https://nirmauni.ac.in/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-cyan-300 transition-colors">
                     Nirma University
                   </MagicLink>{' '}
-                  with a minor in Cyber Physical Systems. I&apos;m passionate about
+                  with a minor in Cyber Security. I&apos;m passionate about
                   creating innovative solutions that make a difference.
                 </p>
               </div>
@@ -101,12 +101,7 @@ export function Intro({
               </div>
               <div className="ml-9">
                 <p className="text-gray-400">
-                  Besides software development, I enjoy designing PCB circuits and
-                  modeling larger systems. Check out my projects{' '}
-                  <MagicLink href="https://www.youtube.com/@yuvrajsinh472/videos" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-indigo-300 transition-colors">
-                    @Deep
-                  </MagicLink>
-                  . I love blending software and hardware to bring ideas to life.
+                Skilled in software development, data analysis, and system design, with hands-on experience in AI/ML, DevOps, and full-stack projects.Passionate about solving real-world problems through innovative technology and continuous learning.
                 </p>
               </div>
             </div>
