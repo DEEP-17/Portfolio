@@ -33,7 +33,7 @@ const socialLinks = [
   {
     name: "Twitter",
     icon: <FaTwitter className="text-2xl" />,
-    url: "https://x.com/deep_patel17",
+    url: "https://x.com/DEEPPATEL518022",
     color: "#4dc6ff",
   },
   {

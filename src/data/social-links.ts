@@ -10,7 +10,7 @@ export const SOCIAL_LINKS = [
     icon: "Linkedin",
   },
   {
-    name: "Twitter",    url: "https://x.com/deep_patel17",
+    name: "Twitter",    url: "https://x.com/DEEPPATEL518022",
     icon: "Twitter",
   },
   {
