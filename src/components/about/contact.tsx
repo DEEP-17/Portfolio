@@ -23,13 +23,13 @@ const socialLinks = [
     name: "GitHub",
     icon: <FaGithub className="text-2xl" />,
     url: "https://github.com/DEEP-17",
-    color: "#8a8a8a",
+    color: "#4dc6ff",
   },
   {
     name: "LinkedIn",
     icon: <FaLinkedin className="text-2xl" />,
     url: "https://linkedin.com/in/pateldeep1704",
-    color: "#63b3e5",
+    color: "#4dc6ff",
   },
   {
     name: "Twitter",
@@ -41,7 +41,7 @@ const socialLinks = [
     name: "Discord",
     icon: <FaDiscord className="text-2xl" />,
     url: "https://discord.com/users/1035138685689139311",
-    color: "#9eb3ea",
+    color: "#4dc6ff",
   },
 ];
 
