@@ -6,119 +6,159 @@ import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
 import { SiGithub } from "react-icons/si";
 import { PROJECTS } from "@/data/project";
+import { FaCode, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 export default function Home() {
+  const colorGradients = [
+    'from-cyan-400 to-blue-500',
+    'from-green-400 to-emerald-500',
+    'from-purple-400 to-indigo-500',
+    'from-amber-400 to-orange-500',
+    'from-violet-400 to-fuchsia-500',
+    'from-blue-400 to-sky-500',
+  ];
+
   return (
-    <div className="flex flex-col items-center h-screen no-scrollbar overflow-scroll">
-      <div className="flex flex-col max-sm:items-center max-w-screen-lg gap-10 mt-44 pb-10">
+    <div className="flex flex-col items-center min-h-screen pt-32 pb-20 px-4">
+      <motion.div
+        className="max-w-7xl w-full"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex items-center gap-2 sm:text-5xl text-4xl font-bold pl-2"
+          className="text-4xl font-bold mb-16 text-center"
         >
-          <IoIosArrowForward className="text-3xl max-sm:hidden sm:text-4xl text-blue-500/80" />
-          <span className="text-foreground dark:text-gray-300 transition-all">
-            Projects
-          </span>
+          <span className="text-foreground dark:text-gray-300">Projects</span>
         </motion.h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full px-4">
-          {PROJECTS.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: 0.1,
-                duration: 0.4,
-                ease: "easeOut",
-              }}
-              whileHover={{ y: -4 }}
-              className="group relative w-full"
-            >
-              <div
-                className={`
-                  relative overflow-hidden rounded-2xl
-                  h-full
-                  dark:bg-white/[0.04] bg-gray-400/10
-                  backdrop-blur-lg
-                  dark:border-white/10 border-gray-200
-                  transition-all
-                  dark:group-hover:border-white/20 group-hover:border-gray-300
-                  group-hover:shadow-xl
-                  dark:group-hover:shadow-blue-500/20 group-hover:shadow-gray-200/50
-                  after:absolute after:inset-0
-                  after:bg-gradient-to-r
-                  after:from-transparent
-                  dark:after:via-white/10 after:via-gray-100/50
-                  after:to-transparent
-                  after:animate-shimmer
-                `}
+
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.1 },
+            },
+          }}
+          initial="hidden"
+          animate="visible"
+        >
+          {PROJECTS.map((project, index) => {
+            const gradient = colorGradients[index % colorGradients.length];
+            const gradientColor = gradient.split(' ')[0].split('-')[1];
+            
+            return (
+              <motion.div
+                key={index}
+                viewport={{ once: true }}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.5 },
+                  },
+                }}
+                className="group relative"
               >
-                <div className="p-5 sm:p-7 relative flex flex-col h-full">
-                  <div className="flex justify-between items-start">
-                    <div className="space-y-2">
-                      <h2 className="text-2xl font-bold dark:group-hover:text-blue-50 group-hover:text-blue-700 transition-colors">
-                        {project.title}
-                      </h2>
+                <motion.div
+                  whileHover={{ y: -5 }}
+                  className={`
+                    relative p-6 rounded-xl h-full
+                    bg-gray-600/10 dark:bg-gray-600/20 backdrop-blur-sm
+                    group
+                    hover:border-${gradientColor}-500/50
+                    hover:shadow-lg hover:shadow-${gradientColor}-500/20
+                  `}
+                >
+                  <div 
+                    className={`
+                      absolute inset-0 rounded-xl opacity-0
+                      group-hover:opacity-20 transition-opacity duration-500
+                      bg-gradient-to-br ${gradient}
+                      blur-xl
+                    `}
+                  />
+                  <div className="relative h-full">
+                    <div className="flex flex-col h-full">
+                      <div className="flex justify-between items-start mb-4">
+                        <div className="flex items-center gap-3">
+                          <div 
+                            className={`
+                              p-2 min-w-12 h-12 flex items-center justify-center
+                              rounded-lg text-2xl
+                              bg-gradient-to-br ${gradient}
+                              group-hover:scale-110 transition-transform
+                            `}
+                          >
+                            <FaCode className="w-5 h-5 text-white" />
+                          </div>
+                          <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                            {project.title}
+                          </h3>
+                        </div>
+                        <div className="flex gap-2">
+                          {project.link && (
+                            <Link
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+                              aria-label="Live Demo"
+                            >
+                              <FaExternalLinkAlt className="w-4 h-4 text-gray-600 dark:text-gray-300" />
+                            </Link>
+                          )}
+                          <Link
+                            href={project.githubLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+                            aria-label="GitHub Repository"
+                          >
+                            <FaGithub className="w-4 h-4 text-gray-600 dark:text-gray-300" />
+                          </Link>
+                        </div>
+                      </div>
+
                       {project.year && (
-                        <p className="text-sm dark:text-gray-400 text-gray-700 transition-colors dark:group-hover:text-gray-300 group-hover:text-gray-900">
+                        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
                           {project.year}
                         </p>
                       )}
-                    </div>
-                    <div className="flex gap-3">
-                      {project.link && (
-                        <Link
-                          href={project.link}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="dark:hover:text-blue-400 hover:text-blue-600"
-                        >
-                          <SquareArrowOutUpRight className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                        </Link>
-                      )}
-                      <Link
-                        href={project.githubLink}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="dark:hover:text-blue-400 hover:text-blue-600"
-                      >
-                        <SiGithub size={24} />
-                      </Link>
-                    </div>
-                  </div>
-                  <p className="text-sm dark:text-gray-400 text-gray-600 transition-colors leading-relaxed flex-grow mt-4 dark:group-hover:text-gray-300 group-hover:text-gray-900">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {project.tag.map((tag, idx) => (
-                      <div
-                        key={idx}
-                        className="inline-flex items-center gap-1.5 rounded-full
-                        dark:bg-blue-500/10 bg-blue-50 px-2.5 py-1
-                        text-xs font-medium
-                        dark:text-blue-400 text-blue-600 transition-colors
-                        dark:group-hover:bg-blue-500/20 group-hover:bg-blue-100
-                        dark:group-hover:text-blue-300 group-hover:text-blue-700"
-                      >
-                        {tag}
-                      </div>
-                    ))}
-                  </div>
-                </div>
 
-                <div
-                  className="absolute inset-0 rounded-2xl opacity-0
-                  dark:group-hover:opacity-20 group-hover:opacity-10 transition-opacity duration-300
-                  dark:bg-gradient-to-br dark:from-blue-400 dark:via-blue-500 dark:to-purple-600
-                  bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 -z-10"
-                />
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
+                      <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                        {project.description}
+                      </p>
+
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {project.tag.map((tag, idx) => (
+                          <span
+                            key={idx}
+                            className={`
+                              px-3 py-1 text-xs rounded-full
+                              backdrop-blur-sm bg-gray-400/10
+                              group-hover:border-${gradientColor}-500/30
+                              group-hover:text-${gradientColor}-400
+                            `}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      </motion.div>
     </div>
   );
 }
