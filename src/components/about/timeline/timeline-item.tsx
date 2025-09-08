@@ -270,13 +270,18 @@ function TimelineCard({ item, isActive, index }: { item: TimelineItemType; isAct
               {item.icon}
             </div>
           )}
-          <h3 className="text-xl font-bold text-white">
+          <h3 className="text-xl font-bold">
             {item.url ? (
-              <Link href={item.url} className={`${colors.text} ${colors.hoverText} transition-colors`}>
+              <Link 
+                href={item.url} 
+                className={`group-hover:text-transparent bg-clip-text bg-gradient-to-r ${colors.gradient} transition-colors`}
+              >
                 {item.title}
               </Link>
             ) : (
-              <span className="text-white">{item.title}</span>
+              <span className={`group-hover:text-transparent bg-clip-text bg-gradient-to-r ${colors.gradient} transition-colors`}>
+                {item.title}
+              </span>
             )}
           </h3>
         </div>

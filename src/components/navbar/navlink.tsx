@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-import { FaCode, FaHome, FaUser } from "react-icons/fa";
+import { FaCode, FaHome, FaTrophy, FaUser } from "react-icons/fa";
 import { GiNotebook } from "react-icons/gi";
 import { motion } from "motion/react";
 
@@ -24,6 +24,8 @@ export default function NavLink({ href, text }: NavLinkProps) {
         return <FaUser className="text-lg" />;
       case "blog":
         return <GiNotebook className="text-lg" />;
+      case "achievements":
+        return <FaTrophy className="text-lg" />;
       default:
         return null;
     }

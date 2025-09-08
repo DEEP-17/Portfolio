@@ -98,7 +98,7 @@ export default function Home() {
                           >
                             <FaCode className="w-5 h-5 text-white" />
                           </div>
-                          <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                          <h3 className={`text-xl font-bold group-hover:text-transparent bg-clip-text bg-gradient-to-r ${gradient} transition-colors`}>
                             {project.title}
                           </h3>
                         </div>

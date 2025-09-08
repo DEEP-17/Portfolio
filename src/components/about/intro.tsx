@@ -67,7 +67,7 @@ export function Intro({
                 <div className="text-2xl text-blue-400 group-hover:opacity-100 transition-all duration-300 mr-3">
                   <FaCode />
                 </div>
-                <h3 className="text-xl font-bold text-white">
+                <h3 className="text-xl font-bold group-hover:text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-500 transition-colors">
                   Introduction
                 </h3>
               </div>
@@ -95,7 +95,7 @@ export function Intro({
                 <div className="text-2xl text-purple-400 group-hover:opacity-100 transition-all duration-300 mr-3">
                   <FaMicrochip />
                 </div>
-                <h3 className="text-xl font-bold text-white">
+                <h3 className="text-xl font-bold group-hover:text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-500 transition-colors">
                   Skills & Interests
                 </h3>
               </div>
@@ -123,8 +123,8 @@ export function Intro({
                 <div className="text-2xl text-cyan-400 group-hover:opacity-100 transition-all duration-300 mr-3">
                   <FaLightbulb />
                 </div>
-                <h3 className="text-xl font-bold text-white">
-                  Philosophy & Approach
+                <h3 className="text-xl font-bold group-hover:text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-500 transition-colors">
+                  Current Focus
                 </h3>
               </div>
               <div className="ml-9">

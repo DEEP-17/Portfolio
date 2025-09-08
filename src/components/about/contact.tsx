@@ -7,6 +7,7 @@ import {
   FaDiscord,
   FaArrowRight,
   FaTimes,
+  FaDownload,
 } from "react-icons/fa";
 import { useState } from "react";
 import emailjs from '@emailjs/browser';
@@ -126,7 +127,7 @@ export function ContactUs({
         </motion.p>
       </motion.div>
 
-      <div className="flex max-sm:flex-col justify-center gap-4 mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
         <motion.div
           {...fadeInUp}
           transition={{ delay: 0.1 }}
@@ -178,6 +179,60 @@ export function ContactUs({
           </div>
         </motion.div>
 
+        {/* Resume Download Card */}
+        <motion.div
+          {...fadeInUp}
+          transition={{ delay: 0.2 }}
+          className="relative group flex justify-center"
+        >
+          <a 
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full cursor-pointer"
+          >
+            <div
+              className={`
+                p-8 max-sm:p-4 rounded-2xl h-full
+                bg-gray-100 dark:bg-gray-600/20 backdrop-blur-lg
+                border border-white/10
+                transition-colors duration-200
+                group-hover:border-white/20
+                group-hover:shadow-lg group-hover:shadow-emerald-500/10
+                overflow-hidden
+                relative
+                h-full
+              `}
+            >
+              <div
+                className={`
+                  absolute inset-0 rounded-xl opacity-0
+                  group-hover:opacity-20 transition-opacity
+                  bg-gradient-to-r from-emerald-400 to-teal-500
+                  blur-xl
+                `}
+              />
+              <div className="flex items-start gap-4 h-full">
+                <div className="p-3 max-sm:p-2 rounded-xl bg-emerald-500/10 group-hover:scale-110 group-hover:rotate-3 transition-transform">
+                  <FaDownload className="text-3xl text-emerald-400" />
+                </div>
+                <div className="flex-grow">
+                  <h3 className="text-xl font-semibold mb-2">View Resume</h3>
+                  <div className="flex items-center gap-2 group/resume">
+                    <span className="text-sm font-medium text-gray-400 group-hover:text-emerald-400 transition-colors">
+                      Opens in new tab
+                    </span>
+                    <FaArrowRight className="text-xs opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-0 group-hover:translate-x-1 text-emerald-400" />
+                  </div>
+                  <p className="text-xs text-gray-500 mt-2">
+                    PDF, ~2MB
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </motion.div>
+
         <motion.div
           {...fadeInUp}
           transition={{ delay: 0.2 }}
@@ -185,10 +240,10 @@ export function ContactUs({
         >
           <div
             className={`
-              flex justify-center items-center max-w-[300px]
-              rounded-2xl h-full w-full max-sm:py-4
+              flex justify-center items-center w-full h-full
+              rounded-2xl max-sm:py-4
               bg-gray-100 dark:bg-gray-600/20 backdrop-blur-lg
-              transition-colors duraiton-200
+              transition-colors duration-200
               border border-white/10
               hover:border-white/20
               hover:shadow-lg hover:shadow-purple-500/10
