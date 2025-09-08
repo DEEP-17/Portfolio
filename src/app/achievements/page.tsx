@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function AchievementsPage() {
-  const [activeSection, setActiveSection] = useState<string>("resume");
+  const [activeSection, setActiveSection] = useState<string>("achievements");
   const [sections, setSections] = useState<HTMLElement[]>([]);
 
   useEffect(() => {
@@ -107,29 +107,19 @@ export default function AchievementsPage() {
   return (
     <MaxWidthWrapper className="pt-32 pb-20 px-4">
       <nav className="fixed right-8 top-1/2 -translate-y-1/2 z-[9999]">
-        <motion.div
-          className="space-y-4"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-        >
-          {['resume', 'achievements', 'activities'].map((section, index) => (
+        <div className="space-y-4">
+          {sections.map((section, index) => (
             <motion.div
-              key={section}
+              key={section.id}
               className={`h-3 w-3 rounded-full cursor-pointer transition-all duration-300 ${
-                activeSection === section ? "bg-white scale-125" : "bg-gray-600"
+                activeSection === section.id ? "bg-white scale-125" : "bg-gray-600"
               }`}
               onClick={() => scrollToSection(index)}
               whileHover={{ scale: 1.2 }}
             />
           ))}
-        </motion.div>
+        </div>
       </nav>
-
-      <div className="max-w-4xl mx-auto text-center">
-        <h1 className="text-4xl font-bold mb-12">Achievements & Activities</h1>
-      </div>
 
       <div className="max-w-4xl mx-auto">
         {/* Achievements Section */}
