@@ -37,9 +37,14 @@ export const education: TimelineItem[] = [
 export const experience: TimelineItem[] = [
   {
     id: 1,
-    title: "Web Developer Intern",
+    title: "Web Developer Intern - SecureWave Technologies",
     description:
-      "SecureWave Technologies. Developed responsive UIs with React.js, improving load performance by 25%. Constructed 12+ RESTful API endpoints, resulting in a 30% reduction in latency for over 1,000 users. Executed 100+ Postman test cases, achieving 99.9% API reliability. Implemented multi-stage Docker builds with Jenkins pipelines, reducing image size by 40% and shortening release cycles by 50%. Managed 20+ microservices on Kubernetes utilizing Helm charts, enhancing scalability by 70%. Monitored system health with Grafana, leveraging Prometheus for metrics and Loki for logs, achieving 99.95% uptime.",
+      "• Developed responsive React.js UIs, boosting page load performance by 25%\n" +
+      "• Built 12+ RESTful APIs, cutting latency by 30% for 1K+ users\n" +
+      "• Designed API testing with 100+ Postman cases, ensuring 99.9% reliability\n" +
+      "• Automated CI/CD with Docker + Jenkins, reducing image size 40% and release time 50%\n" +
+      "• Deployed 20+ microservices on Kubernetes via Helm, improving scalability 70%\n" +
+      "• Set up monitoring with Grafana, Prometheus, and Loki, achieving 99.95% uptime",
     date: "June 2023 - July 2023",
     type: 'work',
     icon: <FaBriefcase />,
@@ -48,9 +53,10 @@ export const experience: TimelineItem[] = [
   },
   {
     id: 2,
-    title: "Social Internship",
+    title: "Social Internship - Hamari Pehchan NGO",
     description:
-      "Hamari Pehchan Weller. Oversaw social awareness campaigns at the NGO Hamari Pehchan using social media to connect and interact with a wide range of people. Curated powerful content that brought attention to social issues resulting in meaningful interactions and promoting a proactive socially responsible culture. Dealt with social issues such as Child labor and Women empowerment.",
+      "• Led social awareness campaigns, leveraging social media to drive engagement and outreach\n" +
+      "• Created impactful content highlighting issues like child labor and women empowerment, fostering meaningful interactions and promoting social responsibility",
     date: "August 2023",
     type: 'work',
     icon: <FaBriefcase />,

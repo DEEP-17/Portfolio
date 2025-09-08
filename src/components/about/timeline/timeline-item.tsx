@@ -213,26 +213,48 @@ function TimelineCard({ item, isActive, index }: { item: TimelineItemType; isAct
   const colors = getColorScheme(item.type || '');
   const renderDescription = (description: string) => {
     const lines = description.split("\n");
-    return lines.map((line, index) => {
-      if (line.startsWith("-")) {
-        const parts = line.substring(1).split("**");
-        return (
-          <li key={index} className="mb-2">
-            {parts.map((part, i) =>
-              i % 2 === 1 ? <strong key={i}>{part}</strong> : part
-            )}
-          </li>
-        );
-      }
-      const parts = line.split("**");
-      return (
-        <p key={index} className="text-gray-400 mb-2">
-          {parts.map((part, i) =>
-            i % 2 === 1 ? <strong key={i}>{part}</strong> : part
-          )}
-        </p>
-      );
-    });
+    return (
+      <div className="space-y-3">
+        {lines.map((line, index) => {
+          if (line.startsWith("-")) {
+            const parts = line.substring(1).split("**");
+            return (
+              <div key={index} className="flex items-start group">
+                <span className="text-blue-400 mr-2 mt-1">•</span>
+                <span className="text-gray-300 group-hover:text-white transition-colors">
+                  {parts.map((part, i) =>
+                    i % 2 === 1 ? (
+                      <strong key={i} className="text-white font-semibold">
+                        {part}
+                      </strong>
+                    ) : (
+                      part
+                    )
+                  )}
+                </span>
+              </div>
+            );
+          }
+          
+          const parts = line.split("**");
+          return (
+            <p key={index} className="text-gray-400 leading-relaxed group">
+              {parts.map((part, i) =>
+                i % 2 === 1 ? (
+                  <span key={i} className="text-white font-medium">
+                    {part}
+                  </span>
+                ) : (
+                  <span className="group-hover:text-gray-300 transition-colors">
+                    {part}
+                  </span>
+                )
+              )}
+            </p>
+          );
+        })}
+      </div>
+    );
   };
 
   return (
@@ -260,39 +282,45 @@ function TimelineCard({ item, isActive, index }: { item: TimelineItemType; isAct
         `}
       />
       <div className="relative">
-        <div className="flex items-center mb-2">
+        <div className="flex items-start mb-4">
           {item.icon && (
             <div className={`
               text-2xl ${colors.text} 
-              group-hover:opacity-100 transition-all duration-300
-              mr-3
+              group-hover:scale-110 transition-all duration-300
+              mr-4 mt-1 flex-shrink-0
             `}>
               {item.icon}
             </div>
           )}
-          <h3 className="text-xl font-bold">
-            {item.url ? (
-              <Link 
-                href={item.url} 
-                className={`group-hover:text-transparent bg-clip-text bg-gradient-to-r ${colors.gradient} transition-colors`}
-              >
-                {item.title}
-              </Link>
-            ) : (
-              <span className={`group-hover:text-transparent bg-clip-text bg-gradient-to-r ${colors.gradient} transition-colors`}>
-                {item.title}
-              </span>
+          <div>
+            <h3 className="text-xl font-bold leading-tight mb-1">
+              {item.url ? (
+                <Link 
+                  href={item.url} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group-hover:text-transparent bg-clip-text bg-gradient-to-r ${colors.gradient} transition-colors hover:opacity-90`}
+                >
+                  {item.title}
+                </Link>
+              ) : (
+                <span className={`group-hover:text-transparent bg-clip-text bg-gradient-to-r ${colors.gradient} transition-colors`}>
+                  {item.title}
+                </span>
+              )}
+            </h3>
+            {item.minor && (
+              <p className={`${colors.text} text-sm font-medium opacity-90`}>{item.minor}</p>
             )}
-          </h3>
+          </div>
         </div>
-        {item.minor && (
-          <p className={`${colors.text} text-md font-semibold mb-2 ml-9`}>{item.minor}</p>
-        )}
 
         {item.coursework ? (
           <div className="ml-9">
-            <p className="text-gray-400 mb-2 whitespace-pre-line">{item.description}</p>
-            <p className="text-gray-400 text-sm mb-4">{item.date}</p>
+            <div className="text-gray-400 mb-4 space-y-3">
+              {renderDescription(item.description)}
+            </div>
+            <p className="text-sm text-gray-500 font-medium">{item.date}</p>
             <h4 className="font-semibold text-white mb-2">Relevant Coursework:</h4>
             <div className="flex flex-wrap gap-2">
               {item.coursework.map((course, index) => (
