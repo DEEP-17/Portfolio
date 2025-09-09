@@ -128,7 +128,6 @@ export const PROJECTS = [
     description:
       "AI-powered web application for real-time network traffic analysis and anomaly detection using advanced machine learning algorithms. This frontend provides interactive dashboards, authentication, and live monitoring for network security insights.",
     image: "../FlashLearn.png",
-    link: "https://my-flashcard.vercel.app/",
     tag: [
       "React",
       "TypeScript",
@@ -147,22 +146,4 @@ export const PROJECTS = [
     year: "2024",
     githubLink: "https://github.com/DEEP-17/Anomaly-Detection",
   },
-  // {
-  //   title: "2048-Game",
-  //   description: "Merge the numbers and get to the 2048 tile!",
-  //   image: "../FlashLearn.png",
-  //   link: "https://yuvrajsinh5252.github.io/2048-Game/",
-  //   tag: ["2048", "Game"],
-  //   year: "2022",
-  //   githubLink: "https://github.com/yuvrajsinh5252/tic-tac-toe",
-  // },
-  // {
-  //   title: "Tic-Tac-Toe",
-  //   description: "A tic-tac-toe game implementing the minimax algorithm",
-  //   image: "../FlashLearn.png",
-  //   link: "https://yuvrajsinh5252.github.io/tic-tac-toe/",
-  //   tag: ["minimax"],
-  //   year: "2022",
-  //   githubLink: "https://github.com/yuvrajsinh5252/2048-Game",
-  // },
 ];
