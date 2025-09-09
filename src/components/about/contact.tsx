@@ -40,7 +40,7 @@ const socialLinks = [
   {
     name: "Discord",
     icon: <FaDiscord className="text-2xl" />,
-    url: "https://discord.com/users/1035138685689139311",
+    url: "https://discord.com/channels/@me/1215142121426657280",
     color: "#4dc6ff",
   },
 ];
