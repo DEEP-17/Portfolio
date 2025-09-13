@@ -2,14 +2,15 @@ import { NextResponse } from 'next/server';
 
 // Log environment variables for debugging (remove in production)
 console.log('Environment Variables:', {
-  CHATBOT_API_URL: process.env.NEXT_PUBLIC_CHATBOT_API_URL ? 'Set' : 'Not Set',
+  CHATBOT_API_URL: process.env.CHATBOT_API_URL || process.env.NEXT_PUBLIC_CHATBOT_API_URL ? 'Set' : 'Not Set',
   NODE_ENV: process.env.NODE_ENV
 });
 
 export async function POST(req: Request) {
   try {
     const { message } = await req.json();
-    const apiUrl = process.env.NEXT_PUBLIC_CHATBOT_API_URL;
+    // Use CHATBOT_API_URL for server-side, fallback to NEXT_PUBLIC_CHATBOT_API_URL for client-side
+    const apiUrl = process.env.CHATBOT_API_URL || process.env.NEXT_PUBLIC_CHATBOT_API_URL;
 
     if (!apiUrl) {
       console.error('Missing NEXT_PUBLIC_CHATBOT_API_URL environment variable');
