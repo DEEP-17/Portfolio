@@ -1,21 +1,37 @@
 import { NextResponse } from 'next/server';
 
-// Log environment variables for debugging (remove in production)
-console.log('Environment Variables:', {
-  CHATBOT_API_URL: process.env.CHATBOT_API_URL || process.env.NEXT_PUBLIC_CHATBOT_API_URL ? 'Set' : 'Not Set',
-  NODE_ENV: process.env.NODE_ENV
-});
-
 export async function POST(req: Request) {
+  // Debug log all environment variables (for debugging only - remove in production)
+  console.log('All Environment Variables:', {
+    CHATBOT_API_URL: process.env.CHATBOT_API_URL || 'Not Set',
+    NEXT_PUBLIC_CHATBOT_API_URL: process.env.NEXT_PUBLIC_CHATBOT_API_URL || 'Not Set',
+    NODE_ENV: process.env.NODE_ENV,
+    VERCEL: process.env.VERCEL,
+    VERCEL_ENV: process.env.VERCEL_ENV
+  });
+
   try {
     const { message } = await req.json();
-    // Use CHATBOT_API_URL for server-side, fallback to NEXT_PUBLIC_CHATBOT_API_URL for client-side
+    
+    // Try both environment variable names
     const apiUrl = process.env.CHATBOT_API_URL || process.env.NEXT_PUBLIC_CHATBOT_API_URL;
-
+    
+    console.log('Using API URL:', apiUrl || 'No API URL found');
+    
     if (!apiUrl) {
-      console.error('Missing NEXT_PUBLIC_CHATBOT_API_URL environment variable');
+      console.error('Missing API URL environment variable. Check your Vercel project settings.');
       return NextResponse.json(
-        { error: 'Server configuration error' },
+        { 
+          error: 'Server configuration error',
+          details: 'CHATBOT_API_URL or NEXT_PUBLIC_CHATBOT_API_URL environment variable is not set',
+          envVars: {
+            CHATBOT_API_URL: !!process.env.CHATBOT_API_URL,
+            NEXT_PUBLIC_CHATBOT_API_URL: !!process.env.NEXT_PUBLIC_CHATBOT_API_URL,
+            NODE_ENV: process.env.NODE_ENV,
+            VERCEL: process.env.VERCEL,
+            VERCEL_ENV: process.env.VERCEL_ENV
+          }
+        },
         { status: 500 }
       );
     }
@@ -29,6 +45,11 @@ export async function POST(req: Request) {
         'Accept': 'application/json',
       },
       body: JSON.stringify({ message }),
+      // Add timeout to prevent hanging requests
+      signal: AbortSignal.timeout(10000) // 10 second timeout
+    }).catch(err => {
+      console.error('Fetch error:', err);
+      throw new Error(`Failed to reach the chat service: ${err.message}`);
     });
 
     // Handle non-JSON responses
