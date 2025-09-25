@@ -2,9 +2,13 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
   // Debug log all environment variables (for debugging only - remove in production)
-  console.log('All Environment Variables:', {
-    CHATBOT_API_URL: process.env.CHATBOT_API_URL || 'Not Set',
-    NEXT_PUBLIC_CHATBOT_API_URL: process.env.NEXT_PUBLIC_CHATBOT_API_URL || 'Not Set',
+  console.log('=== CHAT API ROUTE STARTED ===');
+  console.log('Request Headers:', Object.fromEntries(req.headers.entries()));
+  
+  // Log environment variables (without values for security)
+  console.log('Environment Variables:', {
+    CHATBOT_API_URL: process.env.CHATBOT_API_URL ? 'Set' : 'Not Set',
+    NEXT_PUBLIC_CHATBOT_API_URL: process.env.NEXT_PUBLIC_CHATBOT_API_URL ? 'Set' : 'Not Set',
     NODE_ENV: process.env.NODE_ENV,
     VERCEL: process.env.VERCEL,
     VERCEL_ENV: process.env.VERCEL_ENV
@@ -17,6 +21,7 @@ export async function POST(req: Request) {
     const apiUrl = process.env.CHATBOT_API_URL || process.env.NEXT_PUBLIC_CHATBOT_API_URL;
     
     console.log('Using API URL:', apiUrl || 'No API URL found');
+    console.log('Request body:', { message });
     
     if (!apiUrl) {
       console.error('Missing API URL environment variable. Check your Vercel project settings.');
@@ -82,11 +87,17 @@ export async function POST(req: Request) {
 
     return NextResponse.json(data);
   } catch (error) {
-    console.error('API Route Error:', error);
+    console.error('API Route Error:', {
+      message: error instanceof Error ? error.message : 'Unknown error',
+      stack: error instanceof Error ? error.stack : undefined,
+      error: JSON.stringify(error, Object.getOwnPropertyNames(error))
+    });
+    
     return NextResponse.json(
       { 
         error: 'Internal server error',
-        details: error instanceof Error ? error.message : 'Unknown error'
+        details: error instanceof Error ? error.message : 'Unknown error',
+        timestamp: new Date().toISOString()
       },
       { status: 500 }
     );
