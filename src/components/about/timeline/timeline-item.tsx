@@ -219,12 +219,12 @@ function TimelineCard({ item, isActive, index }: { item: TimelineItemType; isAct
           if (line.startsWith("-")) {
             const parts = line.substring(1).split("**");
             return (
-              <div key={index} className="flex items-start group">
+              <div key={index} className="flex items-start">
                 <span className="text-blue-400 mr-2 mt-1">•</span>
-                <span className="text-gray-300 group-hover:text-white transition-colors">
+                <span className="text-muted-foreground">
                   {parts.map((part, i) =>
                     i % 2 === 1 ? (
-                      <strong key={i} className="text-white font-semibold">
+                      <strong key={i} className="text-foreground font-semibold">
                         {part}
                       </strong>
                     ) : (
@@ -238,16 +238,14 @@ function TimelineCard({ item, isActive, index }: { item: TimelineItemType; isAct
           
           const parts = line.split("**");
           return (
-            <p key={index} className="text-gray-400 leading-relaxed group">
+            <p key={index} className="text-muted-foreground leading-relaxed">
               {parts.map((part, i) =>
                 i % 2 === 1 ? (
-                  <span key={i} className="text-white font-medium">
+                  <span key={i} className="text-foreground font-medium">
                     {part}
                   </span>
                 ) : (
-                  <span key={i} className="group-hover:text-gray-300 transition-colors">
-                    {part}
-                  </span>
+                  part
                 )
               )}
             </p>
@@ -317,11 +315,11 @@ function TimelineCard({ item, isActive, index }: { item: TimelineItemType; isAct
 
         {item.coursework ? (
           <div className="ml-9">
-            <div className="text-gray-400 mb-4 space-y-3">
+            <div className="mb-4 space-y-3">
               {renderDescription(item.description)}
             </div>
-            <p className="text-sm text-gray-500 font-medium">{item.date}</p>
-            <h4 className="font-semibold text-white mb-2">Relevant Coursework:</h4>
+            <p className="text-sm text-muted-foreground font-medium">{item.date}</p>
+            <h4 className="font-semibold text-foreground mb-2">Relevant Coursework:</h4>
             <div className="flex flex-wrap gap-2">
               {item.coursework.map((course, index) => (
                 <span
@@ -335,10 +333,10 @@ function TimelineCard({ item, isActive, index }: { item: TimelineItemType; isAct
           </div>
         ) : (
           <div className="ml-9">
-            <ul className="list-disc list-inside text-gray-400">
+            <ul className="list-disc list-inside text-muted-foreground">
               {renderDescription(item.description)}
             </ul>
-            <p className="text-gray-400 text-sm mt-4">{item.date}</p>
+            <p className="text-muted-foreground text-sm mt-4">{item.date}</p>
           </div>
         )}
       </div>

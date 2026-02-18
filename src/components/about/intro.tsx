@@ -72,7 +72,7 @@ export function Intro({
                 </h3>
               </div>
               <div className="ml-9">
-                <p className="text-gray-400">
+                <p className="text-muted-foreground">
                   Hey, I&apos;m Deep! I&apos;m a 4th-year Computer Science B.Tech student at{' '}
                   <MagicLink href="https://nirmauni.ac.in/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-cyan-300 transition-colors">
                     Nirma University
@@ -100,7 +100,7 @@ export function Intro({
                 </h3>
               </div>
               <div className="ml-9">
-                <p className="text-gray-400">
+                <p className="text-muted-foreground">
                 Skilled in software development, data analysis, and system design, with hands-on experience in AI/ML, DevOps, and full-stack projects.Passionate about solving real-world problems through innovative technology and continuous learning.
                 </p>
               </div>
@@ -123,7 +123,7 @@ export function Intro({
                 </h3>
               </div>
               <div className="ml-9">
-                <p className="text-gray-400">
+                <p className="text-muted-foreground">
                   In my free time, I participate in hackathons, enhance my coding
                   skills, and stay updated with industry trends. I believe in
                   lifelong learning and embracing new challenges.
