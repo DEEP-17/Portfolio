@@ -17,7 +17,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  background-color: bg-gray-900;
+  /* background-color: #111827; removed to rely on var(--background) which handles theme switching correctly */
   font-family: Arial, Helvetica, sans-serif;
   transition: color 0.5s ease, background 0.5s ease;
 }
@@ -54,4 +54,22 @@ body {
 
 * {
   cursor: none !important;
+}
+
+.force-light-black {
+  color: #000000 !important;
+}
+
+.dark .force-light-black {
+  color: #d1d5db !important;
+  /* gray-300 */
+}
+
+.force-light-black-headings {
+  color: #000000 !important;
+}
+
+.dark .force-light-black-headings {
+  color: #e5e7eb !important;
+  /* gray-200 */
 }

@@ -32,7 +32,7 @@ export default function Home() {
           transition={{ duration: 0.5 }}
           className="text-4xl font-bold mb-16 text-center"
         >
-          <span className="text-foreground dark:text-gray-300">Projects</span>
+          <span className="force-light-black">Projects</span>
         </motion.h1>
 
         <motion.div

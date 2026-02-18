@@ -43,7 +43,7 @@ export function Intro({
       className="max-w-6xl mx-auto relative"
     >
       <motion.h2
-        className="text-3xl font-bold text-center mb-12"
+        className="text-3xl font-bold text-center mb-12 force-light-black-headings"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}

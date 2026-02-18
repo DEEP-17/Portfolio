@@ -81,7 +81,7 @@ export default function Home() {
 
       <section className="py-24" id="education">
         <div>
-          <h2 className="text-3xl font-bold text-center mb-12">Education</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 force-light-black-headings">Education</h2>
           <Timeline 
             items={education} 
             sectionTitle="education" 
@@ -93,7 +93,7 @@ export default function Home() {
 
       <section className="py-24" id="experience">
         <div>
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="text-3xl font-bold text-center mb-12 force-light-black-headings">
             Work Experience
           </h2>
           <Timeline 

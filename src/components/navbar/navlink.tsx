@@ -48,7 +48,7 @@ export default function NavLink({ href, text }: NavLinkProps) {
           hover:text-blue-600 transition-all duration-300 ${
             isActive
               ? "text-blue-600 dark:text-blue-300 font-medium"
-              : "text-gray-600 dark:text-gray-300 hover:opacity-100"
+              : "force-light-black hover:opacity-100 opacity-100"
           }`}
       >
         <motion.div
