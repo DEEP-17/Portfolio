@@ -205,7 +205,7 @@ export default function AchievementsPage() {
                     </h3>
                     <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
                       {activity.description.map((item, i) => (
-                        <li key={i} className="group-hover:text-gray-300 transition-colors">
+                        <li key={i}>
                           {item}
                         </li>
                       ))}

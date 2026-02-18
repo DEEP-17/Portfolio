@@ -98,7 +98,7 @@ export default function Home() {
                           >
                             <FaCode className="w-5 h-5 text-white" />
                           </div>
-                          <h3 className={`text-xl font-bold group-hover:text-transparent bg-clip-text bg-gradient-to-r ${gradient} transition-colors`}>
+                          <h3 className={`text-xl font-bold transition-colors group-hover:text-transparent bg-clip-text bg-gradient-to-r ${gradient}`}>
                             {project.title}
                           </h3>
                         </div>
@@ -111,7 +111,7 @@ export default function Home() {
                               className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
                               aria-label="Live Demo"
                             >
-                              <FaExternalLinkAlt className="w-4 h-4 text-gray-600 dark:text-gray-300" />
+                              <FaExternalLinkAlt className="w-4 h-4 !text-black dark:!text-gray-300" />
                             </Link>
                           )}
                           <Link
@@ -121,18 +121,18 @@ export default function Home() {
                             className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
                             aria-label="GitHub Repository"
                           >
-                            <FaGithub className="w-4 h-4 text-gray-600 dark:text-gray-300" />
+                            <FaGithub className="w-4 h-4 !text-black dark:!text-gray-300" />
                           </Link>
                         </div>
                       </div>
 
                       {project.year && (
-                        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                        <p className="text-sm text-black dark:text-gray-400 mb-4">
                           {project.year}
                         </p>
                       )}
 
-                      <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                      <p className="text-muted-foreground mb-4 flex-grow">
                         {project.description}
                       </p>
 
@@ -141,10 +141,11 @@ export default function Home() {
                           <span
                             key={idx}
                             className={`
-                              px-3 py-1 text-xs rounded-full
-                              backdrop-blur-sm bg-gray-400/10
+                              px-3 py-1 text-xs rounded-full !text-black
+                              dark:!text-gray-300 backdrop-blur-sm bg-gray-400/10
                               group-hover:border-${gradientColor}-500/30
-                              group-hover:text-${gradientColor}-400
+                              group-hover:!text-${gradientColor}-400
+                              dark:group-hover:!text-${gradientColor}-400
                             `}
                           >
                             {tag}
