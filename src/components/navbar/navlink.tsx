@@ -47,7 +47,7 @@ export default function NavLink({ href, text }: NavLinkProps) {
         className={`relative rounded-full flex items-center gap-2 px-3 py-2
           hover:text-blue-600 transition-all duration-300 ${
             isActive
-              ? "text-blue-600 dark:text-blue-300 font-medium"
+              ? "force-active-dark-blue font-bold"
               : "force-light-black hover:opacity-100 opacity-100"
           }`}
       >

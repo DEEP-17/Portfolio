@@ -65,6 +65,16 @@ body {
   /* gray-300 */
 }
 
+.force-active-dark-blue {
+  color: #1e3a5f !important;
+  /* dark navy blue for active nav icons in light theme */
+}
+
+.dark .force-active-dark-blue {
+  color: #93c5fd !important;
+  /* blue-300 for active nav icons in dark theme */
+}
+
 .force-light-black-headings {
   color: #000000 !important;
 }

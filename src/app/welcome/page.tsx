@@ -58,7 +58,7 @@ const WelcomePage = ({onAnimationComplete}:any) => {
  variants={pageVariants}
         initial="initial"
         exit="exit"
- className="fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center z-50 text-gray-800 dark:text-gray-200 p-4 space-y-8 md:space-y-16"
+ className="fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center z-50 force-light-black p-4 space-y-8 md:space-y-16"
  >
  <div className="flex justify-center items-center flex-grow">
  <div className="rounded-full p-1 border-2 border-blue-400 h-80 w-80 md:h-96 md:w-96 relative overflow-hidden">
