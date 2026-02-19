@@ -81,19 +81,19 @@ export default function Home() {
                   social.name === "Email" ? (
                     <EmailContactButton key={social.name} />
                   ) : (
-                  <Link
-                    key={social.name}
-                    href={
-                       { pathname: social.url }
-                    }
-                    target="_blank"
-                    className="p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 expand-cursor hover:scale-110 hover:-translate-y-1"
-                  >
-
-                    {social.icon === "Github" && <SiGithub size={24} />}
-                    {social.icon === "Linkedin" && <SiLinkedin size={24} />}
-                    {social.icon === "Twitter" && <Twitter size={24} />}
-                  </Link>
+                  <div key={social.name} className="relative group flex justify-center items-center expand-cursor">
+                    <div className="flex justify-center items-center rounded-full h-12 w-12 transition-all duration-200 overflow-hidden p-1.5 group-hover:bg-[#4dc6ff]/10 group-hover:shadow-lg group-hover:shadow-[#4dc6ff]/10">
+                      <Link
+                        href={{ pathname: social.url }}
+                        target="_blank"
+                        className="group/social flex items-center justify-center rounded-full relative overflow-hidden w-full h-full"
+                      >
+                        {social.icon === "Github" && <SiGithub className="text-2xl transition-transform group-hover/social:scale-110" />}
+                        {social.icon === "Linkedin" && <SiLinkedin className="text-2xl transition-transform group-hover/social:scale-110" />}
+                        {social.icon === "Twitter" && <Twitter className="w-6 h-6 transition-transform group-hover/social:scale-110" />}
+                      </Link>
+                    </div>
+                  </div>
                   )
                 ))}
               </div>
@@ -110,12 +110,16 @@ function EmailContactButton() {
 
   return (
     <>
-      <button
-        onClick={() => setIsModalOpen(true)}
-        className="p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 expand-cursor hover:scale-110 hover:-translate-y-1"
-      >
-        <Mail size={24} />
-      </button>
+      <div className="relative group flex justify-center items-center expand-cursor">
+        <div className="flex justify-center items-center rounded-full h-12 w-12 transition-all duration-200 overflow-hidden p-1.5 group-hover:bg-[#4dc6ff]/10 group-hover:shadow-lg group-hover:shadow-[#4dc6ff]/10">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="group/social flex items-center justify-center rounded-full relative overflow-hidden w-full h-full"
+          >
+            <Mail className="w-6 h-6 transition-transform group-hover/social:scale-110" />
+          </button>
+        </div>
+      </div>
       <EmailContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} /> {/* Pass props here */}
     </>
   );
