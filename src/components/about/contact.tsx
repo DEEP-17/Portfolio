@@ -120,7 +120,7 @@ export function ContactUs({
         </motion.h2>
         <motion.p
           {...fadeInUp}
-          className="text-lg text-gray-400/90 max-w-2xl mx-auto leading-relaxed"
+          className="text-lg force-light-black max-w-2xl mx-auto leading-relaxed"
         >
           I&apos;m always open to new opportunities, collaborations, and
           interesting conversations. Feel free to reach out!
@@ -165,12 +165,12 @@ export function ContactUs({
                 <div className="flex-grow">
                   <h3 className="text-xl font-semibold mb-2">Email Me</h3>
                   <div className="flex items-center gap-2 group/email">
-                    <span className="text-sm font-medium text-gray-400 group-hover:text-blue-400 transition-colors">
+                    <span className="text-sm font-medium force-light-black group-hover:text-blue-400 transition-colors">
                       Click to send a message
                     </span>
                     <FaArrowRight className="text-xs opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-0 group-hover:translate-x-1 text-blue-400" />
                   </div>
-                  <p className="text-xs text-gray-500 mt-2">
+                  <p className="text-xs force-light-black mt-2">
                     Open contact form
                   </p>
                 </div>
@@ -219,12 +219,12 @@ export function ContactUs({
                 <div className="flex-grow">
                   <h3 className="text-xl font-semibold mb-2">View Resume</h3>
                   <div className="flex items-center gap-2 group/resume">
-                    <span className="text-sm font-medium text-gray-400 group-hover:text-emerald-400 transition-colors">
+                    <span className="text-sm font-medium force-light-black group-hover:text-emerald-400 transition-colors">
                       Opens in new tab
                     </span>
                     <FaArrowRight className="text-xs opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-0 group-hover:translate-x-1 text-emerald-400" />
                   </div>
-                  <p className="text-xs text-gray-500 mt-2">
+                  <p className="text-xs force-light-black mt-2">
                     PDF, ~2MB
                   </p>
                 </div>
