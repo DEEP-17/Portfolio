@@ -6,9 +6,11 @@ import { Provider } from "@/components/themes/provides";
 import { useTheme } from "next-themes";
 import Navbar from "@/components/navbar/navbar";
 import { CircleAnimation } from "@/components/effects/growing-circle";
+import SmoothScrollProvider from "@/components/effects/smooth-scroll-provider";
 import { Background } from "@/components/effects/background";
 import CustomCursor from "@/components/cursor/custom-cursor";
 import { Chatbot } from "@/components/chat/chatbot";
+import { PageTransition } from "@/components/effects/page-transition";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import WelcomePage from "./welcome/page";
@@ -47,6 +49,7 @@ export default function RootLayout({
       </head>
       <body className={`${poppins.className}`}>
         <Provider>
+          <SmoothScrollProvider>
           <Background />
           <CircleAnimation />
           <CustomCursor />
@@ -55,7 +58,9 @@ export default function RootLayout({
           ) : (
             <>
               <Navbar />
-              <div className="z-30 relative">{children}</div>
+              <div className="z-30 relative">
+                <PageTransition>{children}</PageTransition>
+              </div>
               <div className="fixed bottom-6 right-6 z-50">
                 <div className="absolute top-1 left-1">
                   <button
@@ -86,6 +91,7 @@ export default function RootLayout({
               <Chatbot isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
             </>
           )}
+          </SmoothScrollProvider>
         </Provider>
       </body>
     </html>

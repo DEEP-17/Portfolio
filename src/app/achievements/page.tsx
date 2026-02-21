@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { Download } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { ScrollReveal } from "@/components/effects/scroll-reveal";
+import { TextReveal } from "@/components/effects/text-reveal";
 
 export default function AchievementsPage() {
   const [activeSection, setActiveSection] = useState<string>("achievements");
@@ -112,7 +114,9 @@ export default function AchievementsPage() {
             <motion.div
               key={section.id}
               className={`h-3 w-3 rounded-full cursor-pointer transition-all duration-300 ${
-                activeSection === section.id ? "bg-white scale-125" : "bg-gray-600"
+                activeSection === section.id
+                  ? "bg-blue-500 scale-125 shadow-md shadow-blue-500/30"
+                  : "bg-gray-300 dark:bg-gray-600 border border-gray-400 dark:border-transparent"
               }`}
               onClick={() => scrollToSection(index)}
               whileHover={{ scale: 1.2 }}
@@ -124,7 +128,11 @@ export default function AchievementsPage() {
       <div className="max-w-4xl mx-auto">
         {/* Achievements Section */}
         <section id="achievements" className="mb-16 text-center">
-          <h2 className="text-2xl font-semibold mb-6">Achievements</h2>
+          <ScrollReveal variant="fadeUp">
+            <TextReveal as="h2" className="text-2xl font-semibold mb-6">
+              Achievements
+            </TextReveal>
+          </ScrollReveal>
           <div className="space-y-6">
             {achievements.map((achievement, index) => {
               const gradient = colorGradients[index % colorGradients.length];
@@ -143,6 +151,7 @@ export default function AchievementsPage() {
                     group hover:border-${gradientColor}-500/50
                     hover:shadow-lg hover:shadow-${gradientColor}-500/20
                     transition-all duration-300
+                    gradient-border glass-card
                   `}
                 >
                   <div 
@@ -170,7 +179,11 @@ export default function AchievementsPage() {
       <div className="max-w-4xl mx-auto">
         {/* Extracurricular Activities Section */}
         <section id="activities" className="text-center">
-          <h2 className="text-2xl font-semibold mb-6">Extracurricular Activities</h2>
+          <ScrollReveal variant="fadeUp">
+            <TextReveal as="h2" className="text-2xl font-semibold mb-6">
+              Extracurricular Activities
+            </TextReveal>
+          </ScrollReveal>
           <div className="space-y-6">
             {activities.map((activity, index) => {
               const gradient = colorGradients[(index + achievements.length) % colorGradients.length];
@@ -189,6 +202,7 @@ export default function AchievementsPage() {
                     group hover:border-${gradientColor}-500/50
                     hover:shadow-lg hover:shadow-${gradientColor}-500/20
                     transition-all duration-300
+                    gradient-border glass-card
                   `}
                 >
                   <div 

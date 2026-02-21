@@ -4,6 +4,7 @@ import React from "react";
 import { FaCode, FaHome, FaTrophy, FaUser } from "react-icons/fa";
 import { GiNotebook } from "react-icons/gi";
 import { motion } from "motion/react";
+import { MagneticButton } from "@/components/effects/magnetic-button";
 
 interface NavLinkProps {
   href: string;
@@ -32,6 +33,7 @@ export default function NavLink({ href, text }: NavLinkProps) {
   };
 
   return (
+    <MagneticButton strength={0.25}>
     <div className="relative capitalize group">
       {isActive && (
         <motion.div
@@ -80,5 +82,6 @@ export default function NavLink({ href, text }: NavLinkProps) {
         </motion.div>
       </Link>
     </div>
+    </MagneticButton>
   );
 }

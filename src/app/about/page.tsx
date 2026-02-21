@@ -8,6 +8,8 @@ import MaxWidthWrapper from "@/components/ui/max-width-wrapper";
 import { education, experience } from "@/data/timeline";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { ScrollReveal } from "@/components/effects/scroll-reveal";
+import { TextReveal } from "@/components/effects/text-reveal";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<string>("introduction");
@@ -63,7 +65,9 @@ export default function Home() {
             <motion.div
               key={section}
               className={`h-3 w-3 rounded-full cursor-pointer transition-all duration-300 ${
-                activeSection === section ? "bg-white scale-125" : "bg-gray-600"
+                activeSection === section
+                  ? "bg-blue-500 scale-125 shadow-md shadow-blue-500/30"
+                  : "bg-gray-300 dark:bg-gray-600 border border-gray-400 dark:border-transparent"
               }`}
               onClick={() => scrollToSection(index)}
               whileHover={{ scale: 1.2 }}
@@ -80,29 +84,35 @@ export default function Home() {
       </section>
 
       <section className="py-24" id="education">
-        <div>
-          <h2 className="text-3xl font-bold text-center mb-12 force-light-black-headings">Education</h2>
-          <Timeline 
-            items={education} 
-            sectionTitle="education" 
-            activeSection={activeSection} 
-            fadeIn={fadeIn} 
-          />
-        </div>
+        <ScrollReveal variant="fadeUp">
+          <div>
+            <TextReveal as="h2" className="text-3xl font-bold text-center mb-12 force-light-black-headings">
+              Education
+            </TextReveal>
+            <Timeline 
+              items={education} 
+              sectionTitle="education" 
+              activeSection={activeSection} 
+              fadeIn={fadeIn} 
+            />
+          </div>
+        </ScrollReveal>
       </section>
 
       <section className="py-24" id="experience">
-        <div>
-          <h2 className="text-3xl font-bold text-center mb-12 force-light-black-headings">
-            Work Experience
-          </h2>
-          <Timeline 
-            items={experience} 
-            sectionTitle="experience" 
-            activeSection={activeSection} 
-            fadeIn={fadeIn} 
-          />
-        </div>
+        <ScrollReveal variant="fadeUp">
+          <div>
+            <TextReveal as="h2" className="text-3xl font-bold text-center mb-12 force-light-black-headings">
+              Work Experience
+            </TextReveal>
+            <Timeline 
+              items={experience} 
+              sectionTitle="experience" 
+              activeSection={activeSection} 
+              fadeIn={fadeIn} 
+            />
+          </div>
+        </ScrollReveal>
       </section>
 
       <section

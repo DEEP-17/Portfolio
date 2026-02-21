@@ -7,6 +7,8 @@ import { IoIosArrowForward } from "react-icons/io";
 import { SiGithub } from "react-icons/si";
 import { PROJECTS } from "@/data/project";
 import { FaCode, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/effects/scroll-reveal";
+import { TextReveal } from "@/components/effects/text-reveal";
 
 export default function Home() {
   const colorGradients = [
@@ -26,14 +28,11 @@ export default function Home() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl font-bold mb-16 text-center"
-        >
-          <span className="force-light-black">Projects</span>
-        </motion.h1>
+        <ScrollReveal variant="fadeUp">
+          <TextReveal as="h1" className="text-4xl font-bold mb-16 text-center force-light-black">
+            Projects
+          </TextReveal>
+        </ScrollReveal>
 
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6"
@@ -71,7 +70,7 @@ export default function Home() {
                   className={`
                     relative p-6 rounded-xl h-full
                     bg-gray-600/10 dark:bg-gray-600/20 backdrop-blur-sm
-                    group
+                    group gradient-border glass-card
                     hover:border-${gradientColor}-500/50
                     hover:shadow-lg hover:shadow-${gradientColor}-500/20
                   `}

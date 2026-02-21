@@ -14,6 +14,7 @@ import { useState, Fragment, useEffect } from "react";
 import { Dialog, Transition } from '@headlessui/react';
 import { FaTimes } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
+import { MagneticButton } from "@/components/effects/magnetic-button";
 
 
 export default function Home() {
@@ -34,25 +35,30 @@ export default function Home() {
                 className="w-[90vw] md:w-[40rem] h-[14rem] md:h-[12rem] relative cursor-pointer"
                 onClick={() => setIsGravityActive(true)}
               >
-                {/* <GravityBox isActive={isGravityActive}> */}
+                {/* Animated mesh gradient background */}
+                <div className="absolute inset-0 mesh-gradient" />
                 <SparklesCore
                   background="transparent"
                   minSize={0.8}
                   maxSize={1.5}
                   particleDensity={100}
-                  className="w-full h-full"
+                  className="w-full h-full relative z-10"
                   particleColor="#4A90E2"
                 />
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <p className="mb-4 text-xl text-center">
+                <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
+                  <motion.p
+                    className="mb-4 text-xl text-center"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.5 }}
+                  >
                     Hey there, I&apos;m
-                  </p>
-                  <h1 className="flex max-sm:flex-col gap-3 text-6xl lg:text-7xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400 animate-text">
+                  </motion.p>
+                  <h1 className="flex max-sm:flex-col gap-3 text-6xl lg:text-7xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-cyan-400 to-teal-400 bg-[length:200%_200%] animate-gradient-shift">
                     <span>Deep</span>
                     <span>Patel</span>
                   </h1>
                 </div>
-                {/* </GravityBox> */}
               </div>
             </motion.div>
 
@@ -75,25 +81,32 @@ export default function Home() {
 
             <motion.div
               className="mt-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
             >
               <div className="flex gap-6 justify-center items-center">
                 {SOCIAL_LINKS.map((social) => (
                   social.name === "Email" ? (
-                    <EmailContactButton key={social.name} />
+                    <MagneticButton key={social.name} strength={0.4}>
+                      <EmailContactButton />
+                    </MagneticButton>
                   ) : (
-                  <div key={social.name} className="relative group flex justify-center items-center expand-cursor">
-                    <div className="flex justify-center items-center rounded-full h-12 w-12 transition-all duration-200 overflow-hidden p-1.5 group-hover:bg-[#4dc6ff]/10 group-hover:shadow-lg group-hover:shadow-[#4dc6ff]/10">
-                      <Link
-                        href={{ pathname: social.url }}
-                        target="_blank"
-                        className="group/social flex items-center justify-center rounded-full relative overflow-hidden w-full h-full"
-                      >
-                        {social.icon === "Github" && <SiGithub className="text-2xl transition-transform group-hover/social:scale-110" />}
-                        {social.icon === "Linkedin" && <SiLinkedin className="text-2xl transition-transform group-hover/social:scale-110" />}
-                        {social.icon === "Twitter" && <Twitter className="w-6 h-6 transition-transform group-hover/social:scale-110" />}
-                      </Link>
+                  <MagneticButton key={social.name} strength={0.4}>
+                    <div className="relative group flex justify-center items-center expand-cursor">
+                      <div className="flex justify-center items-center rounded-full h-12 w-12 transition-all duration-200 overflow-hidden p-1.5 group-hover:bg-[#4dc6ff]/10 group-hover:shadow-lg group-hover:shadow-[#4dc6ff]/10">
+                        <Link
+                          href={{ pathname: social.url }}
+                          target="_blank"
+                          className="group/social flex items-center justify-center rounded-full relative overflow-hidden w-full h-full"
+                        >
+                          {social.icon === "Github" && <SiGithub className="text-2xl transition-transform group-hover/social:scale-110" />}
+                          {social.icon === "Linkedin" && <SiLinkedin className="text-2xl transition-transform group-hover/social:scale-110" />}
+                          {social.icon === "Twitter" && <Twitter className="w-6 h-6 transition-transform group-hover/social:scale-110" />}
+                        </Link>
+                      </div>
                     </div>
-                  </div>
+                  </MagneticButton>
                   )
                 ))}
               </div>

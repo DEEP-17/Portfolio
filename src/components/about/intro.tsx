@@ -2,6 +2,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { FaCode, FaLightbulb, FaMicrochip } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { MagicLink } from "../effects/magiclink";
+import { AnimatedStats } from "../effects/animated-counter";
 
 export function Intro({
   activeSection,
@@ -28,7 +29,7 @@ export function Intro({
       x: 0,
       transition: {
         duration: 0.3,
-        ease: "easeOut",
+        ease: "easeOut" as const,
       },
     },
   };
@@ -59,7 +60,7 @@ export function Intro({
           {/* First Card */}
           <motion.div
             variants={item}
-            className="relative p-6 rounded-xl bg-gray-600/10 dark:bg-gray-600/20 backdrop-blur-sm hover:border-blue-500/50 group hover:shadow-lg hover:shadow-blue-500/20"
+            className="relative p-6 rounded-xl bg-gray-600/10 dark:bg-gray-600/20 backdrop-blur-sm hover:border-blue-500/50 group hover:shadow-lg hover:shadow-blue-500/20 gradient-border glass-card"
           >
             <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-r from-blue-400 to-cyan-500 blur-xl" />
             <div className="relative">
@@ -87,7 +88,7 @@ export function Intro({
           {/* Second Card */}
           <motion.div
             variants={item}
-            className="relative p-6 rounded-xl bg-gray-600/10 dark:bg-gray-600/20 backdrop-blur-sm hover:border-purple-500/50 group hover:shadow-lg hover:shadow-purple-500/20"
+            className="relative p-6 rounded-xl bg-gray-600/10 dark:bg-gray-600/20 backdrop-blur-sm hover:border-purple-500/50 group hover:shadow-lg hover:shadow-purple-500/20 gradient-border glass-card"
           >
             <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-r from-purple-400 to-indigo-500 blur-xl" />
             <div className="relative">
@@ -110,7 +111,7 @@ export function Intro({
           {/* Third Card */}
           <motion.div
             variants={item}
-            className="relative p-6 rounded-xl bg-gray-600/10 dark:bg-gray-600/20 backdrop-blur-sm hover:border-cyan-500/50 group hover:shadow-lg hover:shadow-cyan-500/20"
+            className="relative p-6 rounded-xl bg-gray-600/10 dark:bg-gray-600/20 backdrop-blur-sm hover:border-cyan-500/50 group hover:shadow-lg hover:shadow-cyan-500/20 gradient-border glass-card"
           >
             <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-r from-cyan-400 to-teal-500 blur-xl" />
             <div className="relative">
@@ -132,6 +133,9 @@ export function Intro({
             </div>
           </motion.div>
         </motion.div>
+
+        {/* Animated Counter Stats */}
+        <AnimatedStats />
       </div>
     </motion.div>
   );

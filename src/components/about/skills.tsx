@@ -108,6 +108,7 @@ export function Skills({
               hover:border-${skill.shadowColor}-500/50
               group hover:shadow-lg hover:shadow-${skill.shadowColor}-500/20
               min-w-0 flex flex-col justify-between
+              gradient-border glass-card
             `}
           >
             <div

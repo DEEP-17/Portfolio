@@ -33,7 +33,7 @@ export function TimelineItem({ item, index, isLast, activeSection, sectionId }: 
       y: 0,
       scale: 1,
       transition: { 
-        type: "spring",
+        type: "spring" as const,
         damping: 15,
         stiffness: 100,
         delay: i * 0.1
@@ -59,7 +59,7 @@ export function TimelineItem({ item, index, isLast, activeSection, sectionId }: 
       y: 0,
       scale: 1,
       transition: { 
-        type: "spring",
+        type: "spring" as const,
         damping: 15,
         stiffness: 100,
         delay: i * 0.1
@@ -170,7 +170,7 @@ function TimelineCard({ item, isActive, index }: { item: TimelineItemType; isAct
       y: 0,
       scale: 1,
       transition: { 
-        type: "spring",
+        type: "spring" as const,
         damping: 15,
         stiffness: 100,
         delay: i * 0.1
@@ -264,6 +264,7 @@ function TimelineCard({ item, isActive, index }: { item: TimelineItemType; isAct
         ${colors.border}
         group
         hover:shadow-lg ${colors.shadowColor}
+        gradient-border glass-card
       `}
       initial="hidden"
       animate={isInView && isActive ? "visible" : "hidden"}
