@@ -42,7 +42,7 @@ const WelcomePage = ({onAnimationComplete}:any) => {
         initial: { scaleX: 0, originX: 0.5, opacity: 0 },
         animate: {
             scaleX: 1, opacity: 1,
-            transition: { duration: 5, ease: "linear"},
+            transition: { duration: 5, ease: "linear" as const},
         },
     };
 
