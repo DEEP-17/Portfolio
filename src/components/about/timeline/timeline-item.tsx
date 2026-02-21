@@ -19,7 +19,7 @@ export function TimelineItem({ item, index, isLast, activeSection, sectionId }: 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.1 });
 
-  // Animation variants for desktop
+
   const cardVariants = {
     hidden: { 
       opacity: 0, 
@@ -47,7 +47,7 @@ export function TimelineItem({ item, index, isLast, activeSection, sectionId }: 
     }
   };
 
-  // Animation variants for mobile
+
   const mobileCardVariants = {
     hidden: { 
       opacity: 0, 
@@ -82,9 +82,9 @@ export function TimelineItem({ item, index, isLast, activeSection, sectionId }: 
       custom={index}
       whileHover={{ y: -5 }}
     >
-      {/* Desktop View */}
+
       <div className="hidden md:flex w-full">
-        {/* Left Side (Even Index) */}
+
         {isEven ? (
           <div className="w-1/2 pr-8 flex justify-end">
             <div className="w-full max-w-2xl">
@@ -95,7 +95,7 @@ export function TimelineItem({ item, index, isLast, activeSection, sectionId }: 
           <div className="w-1/2"></div>
         )}
 
-        {/* Center Line & Dot */}
+
         <div className="flex flex-col items-center w-12 flex-shrink-0">
           <motion.div 
             className="w-4 h-4 rounded-full bg-blue-500 border-4 border-gray-900 z-10"
@@ -110,7 +110,7 @@ export function TimelineItem({ item, index, isLast, activeSection, sectionId }: 
           {!isLast && <div className="w-0.5 h-full bg-gray-700"></div>}
         </div>
 
-        {/* Right Side (Odd Index) */}
+
         {!isEven ? (
           <div className="w-1/2 pl-8">
             <div className="w-full max-w-2xl">
@@ -122,9 +122,9 @@ export function TimelineItem({ item, index, isLast, activeSection, sectionId }: 
         )}
       </div>
 
-      {/* Mobile View */}
+
       <div className="md:hidden flex w-full">
-        {/* Line & Dot */}
+
         <div className="flex flex-col items-center w-12 flex-shrink-0">
           <motion.div 
             className="w-4 h-4 rounded-full bg-blue-500 border-4 border-gray-900 z-10"
@@ -139,7 +139,7 @@ export function TimelineItem({ item, index, isLast, activeSection, sectionId }: 
           {!isLast && <div className="w-0.5 h-full bg-gray-700"></div>}
         </div>
 
-        {/* Content */}
+
         <div className="pl-6 w-full">
           <motion.div
             className="w-full"
@@ -154,7 +154,7 @@ export function TimelineItem({ item, index, isLast, activeSection, sectionId }: 
   );
 }
 
-// Separate component for the card to avoid code duplication
+
 function TimelineCard({ item, isActive, index }: { item: TimelineItemType; isActive: boolean; index: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(cardRef, { once: false, amount: 0.1 });
@@ -177,7 +177,7 @@ function TimelineCard({ item, isActive, index }: { item: TimelineItemType; isAct
       }
     })
   };
-  // Determine color scheme based on item type
+
   const getColorScheme = (type: string) => {
     switch(type.toLowerCase()) {
       case 'education':

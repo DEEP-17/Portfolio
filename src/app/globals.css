@@ -17,7 +17,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  /* background-color: #111827; removed to rely on var(--background) which handles theme switching correctly */
+
   font-family: Arial, Helvetica, sans-serif;
   transition: color 0.5s ease, background 0.5s ease;
 }
@@ -47,7 +47,6 @@ body {
   z-index: -1;
 }
 
-/* scroll-bar */
 ::-webkit-scrollbar {
   display: none;
 }
@@ -62,17 +61,14 @@ body {
 
 .dark .force-light-black {
   color: #d1d5db !important;
-  /* gray-300 */
 }
 
 .force-active-dark-blue {
   color: #1e3a5f !important;
-  /* dark navy blue for active nav icons in light theme */
 }
 
 .dark .force-active-dark-blue {
   color: #93c5fd !important;
-  /* blue-300 for active nav icons in dark theme */
 }
 
 .force-light-black-headings {
@@ -81,12 +77,9 @@ body {
 
 .dark .force-light-black-headings {
   color: #e5e7eb !important;
-  /* gray-200 */
 }
 
-/* ========================================
-   MESH GRADIENT HERO ANIMATION
-   ======================================== */
+
 @property --gradient-angle {
   syntax: "<angle>";
   initial-value: 0deg;
@@ -177,9 +170,7 @@ body {
   }
 }
 
-/* ========================================
-   GLASSMORPHISM CARD
-   ======================================== */
+
 .glass-card {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
@@ -196,46 +187,9 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
-/* ========================================
-   GLOW EFFECTS
-   ======================================== */
-.glow-blue {
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.3),
-    0 0 30px rgba(59, 130, 246, 0.15);
-}
 
-.glow-purple {
-  box-shadow: 0 0 15px rgba(139, 92, 246, 0.3),
-    0 0 30px rgba(139, 92, 246, 0.15);
-}
 
-.glow-cyan {
-  box-shadow: 0 0 15px rgba(6, 182, 212, 0.3),
-    0 0 30px rgba(6, 182, 212, 0.15);
-}
 
-/* ========================================
-   FLOATING ANIMATION
-   ======================================== */
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-/* ========================================
-   SHIMMER EFFECT
-   ======================================== */
 @keyframes shimmer {
   0% {
     background-position: -200% 0;
@@ -255,9 +209,7 @@ body {
   animation: shimmer 3s ease-in-out infinite;
 }
 
-/* ========================================
-   LENIS SMOOTH SCROLL
-   ======================================== */
+
 html.lenis,
 html.lenis body {
   height: auto;

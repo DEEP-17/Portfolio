@@ -31,7 +31,7 @@ export const TypewriterEffect = ({
     
     if (!isPaused) {
       if (!isDeleting && currentIndex < fullText.length) {
-        // Typing
+
         const timeout = setTimeout(() => {
           setCurrentText(prevText => prevText + fullText[currentIndex]);
           setCurrentIndex(prevIndex => prevIndex + 1);
@@ -39,27 +39,27 @@ export const TypewriterEffect = ({
 
         return () => clearTimeout(timeout);
       } else if (isDeleting && currentIndex > 0) {
-        // Backspacing
+
         const timeout = setTimeout(() => {
           setCurrentText(prevText => prevText.slice(0, -1));
           setCurrentIndex(prevIndex => prevIndex - 1);
-        }, 50); // Faster backspacing
+        }, 50);
 
         return () => clearTimeout(timeout);
       } else if (currentIndex === fullText.length) {
-        // Pause at the end of typing
+
         setIsPaused(true);
         setTimeout(() => {
           setIsDeleting(true);
           setIsPaused(false);
-        }, 2000); // Pause for 2 seconds before backspacing
+        }, 2000);
       } else if (currentIndex === 0 && isDeleting) {
-        // Pause at the beginning after backspacing
+
         setIsPaused(true);
         setTimeout(() => {
           setIsDeleting(false);
           setIsPaused(false);
-        }, 1000); // Pause for 1 second before typing again
+        }, 1000);
       }
     }
   }, [currentIndex, mounted, words, isDeleting, isPaused]);

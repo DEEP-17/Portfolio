@@ -69,7 +69,7 @@ export function ContactUs({
     setSubmitStatus('idle');
 
     try {
-      // Replace these with your EmailJS credentials
+
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
@@ -79,10 +79,10 @@ export function ContactUs({
       };
 
       await emailjs.send(
-        'service_d7b9yh8', // Replace with your service ID
-        'template_mzze8xr', // Replace with your template ID
+        'service_d7b9yh8',
+        'template_mzze8xr',
         templateParams,
-        'xNWMif4FLGRDC2poo' // Replace with your public key
+        'xNWMif4FLGRDC2poo'
       );
 
       setSubmitStatus('success');
@@ -179,7 +179,7 @@ export function ContactUs({
           </div>
         </motion.div>
 
-        {/* Resume Download Card */}
+
         <motion.div
           {...fadeInUp}
           transition={{ delay: 0.2 }}
@@ -302,7 +302,7 @@ export function ContactUs({
         </motion.div>
       </div>
 
-      {/* Contact Form Modal */}
+
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center">
           <motion.div

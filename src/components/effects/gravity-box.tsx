@@ -28,12 +28,12 @@ export const GravityBox = ({ children, isActive }: GravityBoxProps) => {
 
     const containerBounds = containerRef.current.getBoundingClientRect();
 
-    // Initialize engine with proper gravity
+
     const engine = Matter.Engine.create({
       gravity: { x: 0, y: 1, scale: 0.002 },
     });
 
-    // Setup render with proper canvas sizing
+
     if (!currentSceneRef) return;
     
     const render = Matter.Render.create({
@@ -48,7 +48,7 @@ export const GravityBox = ({ children, isActive }: GravityBoxProps) => {
       },
     });
 
-    // Position canvas absolutely within container
+
     render.canvas.style.position = "absolute";
     render.canvas.style.top = "0";
     render.canvas.style.left = "0";
@@ -60,7 +60,7 @@ export const GravityBox = ({ children, isActive }: GravityBoxProps) => {
       const physicsElement = document.createElement("div");
       const computedStyle = window.getComputedStyle(element);
 
-      // Calculate position relative to container
+
       const relativeLeft = rect.left - containerBounds.left;
       const relativeTop = rect.top - containerBounds.top;
 
@@ -99,7 +99,7 @@ export const GravityBox = ({ children, isActive }: GravityBoxProps) => {
       };
     };
 
-    // Create walls with proper collision
+
     const wallOptions = { isStatic: true, render: { visible: false } };
     const walls = [
       Matter.Bodies.rectangle(
@@ -125,7 +125,7 @@ export const GravityBox = ({ children, isActive }: GravityBoxProps) => {
       ),
     ];
 
-    // Create bodies for text elements
+
     const elements = contentRef.current.querySelectorAll("h1, p, span");
     const bodies: Matter.Body[] = [];
 
@@ -151,7 +151,7 @@ export const GravityBox = ({ children, isActive }: GravityBoxProps) => {
       bodies.push(body);
     });
 
-    // Improve render updates
+
     Matter.Events.on(render, "beforeRender", () => {
       bodies.forEach((body) => {
         const element = (body as any).domElement;
@@ -165,7 +165,7 @@ export const GravityBox = ({ children, isActive }: GravityBoxProps) => {
       });
     });
 
-    // Setup mouse control
+
     const mouse = Matter.Mouse.create(render.canvas);
     const mouseConstraint = Matter.MouseConstraint.create(engine, {
       mouse: mouse,
@@ -177,17 +177,17 @@ export const GravityBox = ({ children, isActive }: GravityBoxProps) => {
 
     render.mouse = mouse;
 
-    // Add everything to world
+
     Matter.World.add(engine.world, [...walls, ...bodies, mouseConstraint]);
 
-    // Run the engine
+
     const runner = Matter.Runner.create();
     Matter.Runner.run(runner, engine);
     Matter.Render.run(render);
 
     setIsGravityActive(true);
 
-    // Cleanup
+
     return () => {
       Matter.World.clear(engine.world, false);
       Matter.Engine.clear(engine);

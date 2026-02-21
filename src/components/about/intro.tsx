@@ -57,7 +57,7 @@ export function Intro({
           variants={container}
           className="space-y-6"
         >
-          {/* First Card */}
+
           <motion.div
             variants={item}
             className="relative p-6 rounded-xl bg-gray-600/10 dark:bg-gray-600/20 backdrop-blur-sm hover:border-blue-500/50 group hover:shadow-lg hover:shadow-blue-500/20 gradient-border glass-card"
@@ -85,7 +85,7 @@ export function Intro({
             </div>
           </motion.div>
 
-          {/* Second Card */}
+
           <motion.div
             variants={item}
             className="relative p-6 rounded-xl bg-gray-600/10 dark:bg-gray-600/20 backdrop-blur-sm hover:border-purple-500/50 group hover:shadow-lg hover:shadow-purple-500/20 gradient-border glass-card"
@@ -108,7 +108,7 @@ export function Intro({
             </div>
           </motion.div>
 
-          {/* Third Card */}
+
           <motion.div
             variants={item}
             className="relative p-6 rounded-xl bg-gray-600/10 dark:bg-gray-600/20 backdrop-blur-sm hover:border-cyan-500/50 group hover:shadow-lg hover:shadow-cyan-500/20 gradient-border glass-card"
@@ -134,7 +134,7 @@ export function Intro({
           </motion.div>
         </motion.div>
 
-        {/* Animated Counter Stats */}
+
         <AnimatedStats />
       </div>
     </motion.div>

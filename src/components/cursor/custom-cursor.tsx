@@ -16,7 +16,7 @@ export default function CustomCursor() {
   const springX = useSpring(cursorX, springConfig);
   const springY = useSpring(cursorY, springConfig);
 
-  // Trailing dot (slower spring)
+
   const trailConfig = { damping: 30, stiffness: 200, mass: 0.5 };
   const trailX = useSpring(cursorX, trailConfig);
   const trailY = useSpring(cursorY, trailConfig);
@@ -46,7 +46,7 @@ export default function CustomCursor() {
         setIsHovered(false);
       }
 
-      // Check for section-based color
+
       const sectionWithColor = target.closest("[data-cursor-color]") as HTMLElement;
       if (sectionWithColor) {
         setCursorColor(sectionWithColor.dataset.cursorColor || "#3b82f6");
@@ -81,7 +81,7 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Main cursor */}
+
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[100]"
         style={{
@@ -107,7 +107,7 @@ export default function CustomCursor() {
         />
       </motion.div>
 
-      {/* Trailing dot */}
+
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[99]"
         style={{

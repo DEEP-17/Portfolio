@@ -63,7 +63,7 @@ export function ScrollReveal({
   );
 }
 
-// Container for staggered children reveals
+
 interface StaggerContainerProps {
   children: ReactNode;
   staggerDelay?: number;
@@ -112,7 +112,7 @@ export function StaggerContainer({
   );
 }
 
-// Wrap individual children with this for stagger effect
+
 export function StaggerItem({
   children,
   className = "",

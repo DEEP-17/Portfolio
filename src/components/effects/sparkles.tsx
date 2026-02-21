@@ -55,11 +55,11 @@ export const SparklesCore = ({
     const particles: Particle[] = [];
     let animationFrameId: number;
 
-    // Generate color variants
+
     const generateColor = () => {
       if (!colorVariation) return particleColor;
 
-      // Create color variations based on the base color
+
       const r = parseInt(particleColor.slice(1, 3), 16);
       const g = parseInt(particleColor.slice(3, 5), 16);
       const b = parseInt(particleColor.slice(5, 7), 16);
@@ -103,7 +103,7 @@ export const SparklesCore = ({
     const drawParticles = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Draw connections between particles
+
       if (connectParticles) {
         particles.forEach((p1, i) => {
           for (let j = i + 1; j < particles.length; j++) {
@@ -128,13 +128,13 @@ export const SparklesCore = ({
       particles.forEach((particle) => {
         const color = particle.color || particleColor;
 
-        // Update trail
+
         particle.trail.push({ x: particle.x, y: particle.y });
         if (particle.trail.length > 5) {
           particle.trail.shift();
         }
 
-        // Draw trail with fade effect
+
         if (particle.trail.length > 1) {
           for (let i = 0; i < particle.trail.length - 1; i++) {
             const t1 = particle.trail[i];
@@ -156,7 +156,7 @@ export const SparklesCore = ({
           }
         }
 
-        // Draw particle
+
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fillStyle = color;
@@ -171,7 +171,7 @@ export const SparklesCore = ({
         ctx.globalAlpha = 1;
         ctx.shadowBlur = 0;
 
-        // Apply mouse interaction
+
         if (enableMouseInteraction && mousePosition) {
           const dx = mousePosition.x - particle.x;
           const dy = mousePosition.y - particle.y;
@@ -185,13 +185,13 @@ export const SparklesCore = ({
           }
         }
 
-        // Add some random movement
+
         if (Math.random() < 0.05) {
           particle.speedX += (Math.random() - 0.5) * 0.2;
           particle.speedY += (Math.random() - 0.5) * 0.2;
         }
 
-        // Apply velocity limits
+
         const maxSpeed = 2;
         particle.speedX = Math.max(
           -maxSpeed,
@@ -202,15 +202,15 @@ export const SparklesCore = ({
           Math.min(maxSpeed, particle.speedY)
         );
 
-        // Update position
+
         particle.x += particle.speedX;
         particle.y += particle.speedY;
 
-        // Pulsating opacity
+
         particle.opacity =
           Math.sin(Date.now() * 0.003 + particle.x * 0.01) * 0.3 + 0.7;
 
-        // Bounce off edges with damping
+
         if (particle.x < 0 || particle.x > canvas.width) {
           particle.speedX *= -0.8;
           particle.x = Math.max(0, Math.min(canvas.width, particle.x));

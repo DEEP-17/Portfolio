@@ -6,7 +6,7 @@ import { TimelineProps } from "@/types/timeline";
 import { motion } from "framer-motion";
 
 export function Timeline({ items, sectionTitle, activeSection, fadeIn }: TimelineProps & { activeSection: string; fadeIn: any }) {
-  // Animation variants for the container
+
   const container = {
     hidden: { opacity: 0 },
     visible: {
@@ -26,10 +26,10 @@ export function Timeline({ items, sectionTitle, activeSection, fadeIn }: Timelin
       animate={activeSection === sectionTitle.toLowerCase() ? "visible" : "hidden"}
       className="relative"
     >
-      {/* Vertical line */}
+
       <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-700 -translate-x-1/2"></div>
       
-      {/* Mobile line */}
+      
       <div className="md:hidden absolute left-6 top-0 bottom-0 w-0.5 bg-gray-700"></div>
       
       <motion.div className="space-y-12">

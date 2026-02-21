@@ -35,7 +35,7 @@ export default function Home() {
                 className="w-[90vw] md:w-[40rem] h-[14rem] md:h-[12rem] relative cursor-pointer"
                 onClick={() => setIsGravityActive(true)}
               >
-                {/* Animated mesh gradient background */}
+
                 <div className="absolute inset-0 mesh-gradient" />
                 <SparklesCore
                   background="transparent"
@@ -133,7 +133,7 @@ function EmailContactButton() {
           </button>
         </div>
       </div>
-      <EmailContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} /> {/* Pass props here */}
+      <EmailContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }

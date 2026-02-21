@@ -22,7 +22,7 @@ export function Chatbot({ isOpen, onClose }: ChatbotProps) {
   const chatOutputRef = useRef<HTMLDivElement>(null);
   const [hasWelcomed, setHasWelcomed] = useState(false);
 
-  // Add welcome message when chat opens
+
   useEffect(() => {
     if (isOpen && !hasWelcomed) {
       const welcomeMessage: Message = { 
@@ -34,14 +34,14 @@ export function Chatbot({ isOpen, onClose }: ChatbotProps) {
     }
   }, [isOpen, hasWelcomed]);
 
-  // Scroll to bottom when messages change
+
   useEffect(() => {
     if (chatOutputRef.current) {
       chatOutputRef.current.scrollTop = chatOutputRef.current.scrollHeight;
     }
   }, [messages]);
 
-  // Handle sending message
+
   const handleSend = async () => {
     if (!input.trim()) return;
 
@@ -67,7 +67,7 @@ export function Chatbot({ isOpen, onClose }: ChatbotProps) {
     }
   };
 
-  // Handle Enter key press
+
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && !isLoading) {
       handleSend();
@@ -91,13 +91,13 @@ export function Chatbot({ isOpen, onClose }: ChatbotProps) {
           <FaTimes className="text-xl" />
         </button>
 
-        {/* Header Section */}
+
         <div className="flex items-center gap-3 py-4 px-6 border-b border-gray-200 dark:border-gray-700">
           <FaRobot className="text-2xl text-blue-500" />
           <h3 className="text-2xl font-bold">AI Assistant</h3>
         </div>
 
-        {/* Chat Section */}
+
         <div
  ref={chatOutputRef}
           className="flex-1 overflow-y-auto space-y-4 p-6 border-b border-gray-200 dark:border-gray-700"
@@ -126,7 +126,7 @@ export function Chatbot({ isOpen, onClose }: ChatbotProps) {
           )}
         </div>
 
-        {/* Input Section */}
+
         <div className="py-2 pl-6 pr-2 flex items-center w-full">
           <div className="flex items-center w-full">
             <input

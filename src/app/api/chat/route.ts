@@ -1,11 +1,11 @@
 import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
-  // Debug log all environment variables (for debugging only - remove in production)
+
   console.log('=== CHAT API ROUTE STARTED ===');
   console.log('Request Headers:', Object.fromEntries(req.headers.entries()));
   
-  // Log environment variables (without values for security)
+
   console.log('Environment Variables:', {
     CHATBOT_API_URL: process.env.CHATBOT_API_URL ? 'Set' : 'Not Set',
     NEXT_PUBLIC_CHATBOT_API_URL: process.env.NEXT_PUBLIC_CHATBOT_API_URL ? 'Set' : 'Not Set',
@@ -17,7 +17,7 @@ export async function POST(req: Request) {
   try {
     const { message } = await req.json();
     
-    // Try both environment variable names
+
     const apiUrl = process.env.CHATBOT_API_URL || process.env.NEXT_PUBLIC_CHATBOT_API_URL;
     
     console.log('Using API URL:', apiUrl || 'No API URL found');
@@ -50,14 +50,13 @@ export async function POST(req: Request) {
         'Accept': 'application/json',
       },
       body: JSON.stringify({ message }),
-      // Add timeout to prevent hanging requests
-      signal: AbortSignal.timeout(10000) // 10 second timeout
+      signal: AbortSignal.timeout(10000)
     }).catch(err => {
       console.error('Fetch error:', err);
       throw new Error(`Failed to reach the chat service: ${err.message}`);
     });
 
-    // Handle non-JSON responses
+
     const contentType = response.headers.get('content-type');
     if (!contentType || !contentType.includes('application/json')) {
       const text = await response.text();

@@ -126,7 +126,7 @@ export default function AchievementsPage() {
       </nav>
 
       <div className="max-w-4xl mx-auto">
-        {/* Achievements Section */}
+
         <section id="achievements" className="mb-16 text-center">
           <ScrollReveal variant="fadeUp">
             <TextReveal as="h2" className="text-2xl font-semibold mb-6">
@@ -177,7 +177,7 @@ export default function AchievementsPage() {
       </div>
 
       <div className="max-w-4xl mx-auto">
-        {/* Extracurricular Activities Section */}
+
         <section id="activities" className="text-center">
           <ScrollReveal variant="fadeUp">
             <TextReveal as="h2" className="text-2xl font-semibold mb-6">
