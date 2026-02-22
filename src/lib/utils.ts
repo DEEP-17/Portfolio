@@ -37,7 +37,7 @@ export function constructMetadata({
       follow: true,
     },
     icons: {
-      icon: "/favicon.ico",
+      icon: "/images/logo.svg",
     },
   };
 }

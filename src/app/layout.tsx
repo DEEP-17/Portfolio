@@ -38,9 +38,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="canonical" href="https://yuvrajsinh.me" />
-        <link rel="icon" href="/images/deep.png" type="image/png" sizes="32x32" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/images/deep.png" type="image/png" sizes="180x180" />
+        <link rel="icon" href="/images/logo.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/images/logo.svg" />
         <script
           defer
           src="https://cloud.umami.is/script.js"
