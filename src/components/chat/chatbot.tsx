@@ -82,7 +82,7 @@ export function Chatbot({ isOpen, onClose }: ChatbotProps) {
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.9, y: 20 }}
- className="bg-gray-100 dark:bg-gray-800 rounded-md w-[95vw] h-[80vh] max-w-sm md:max-w-md lg:max-w-lg flex flex-col relative shadow-xl md:w-96 md:h-[500px] overflow-hidden"
+ className="chatbot-area bg-gray-100 dark:bg-gray-800 rounded-md w-[95vw] h-[80vh] max-w-sm md:max-w-md lg:max-w-lg flex flex-col relative shadow-xl md:w-96 md:h-[500px] overflow-hidden"
       >
         <button
           onClick={onClose}
@@ -100,7 +100,7 @@ export function Chatbot({ isOpen, onClose }: ChatbotProps) {
 
         <div
  ref={chatOutputRef}
-          className="flex-1 min-h-0 overflow-y-auto space-y-4 p-6 border-b border-gray-200 dark:border-gray-700"
+          className="chatbot-scroll flex-1 min-h-0 overflow-y-auto space-y-4 p-6 border-b border-gray-200 dark:border-gray-700"
         >
           {messages.map((msg, index) => (
             <div

@@ -226,3 +226,55 @@ html.lenis body {
 .lenis.lenis-stopped {
   overflow: hidden;
 }
+
+/* Chatbot custom scrollbar */
+.chatbot-scroll::-webkit-scrollbar {
+  display: block;
+  width: 6px;
+}
+
+.chatbot-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chatbot-scroll::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.4);
+  border-radius: 9999px;
+  transition: background 0.2s ease;
+}
+
+.chatbot-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.7);
+}
+
+.dark .chatbot-scroll::-webkit-scrollbar-thumb {
+  background: rgba(107, 114, 128, 0.5);
+}
+
+.dark .chatbot-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(107, 114, 128, 0.8);
+}
+
+/* Firefox scrollbar */
+.chatbot-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.4) transparent;
+}
+
+.dark .chatbot-scroll {
+  scrollbar-color: rgba(107, 114, 128, 0.5) transparent;
+}
+
+/* Restore cursor inside chatbot */
+.chatbot-area,
+.chatbot-area * {
+  cursor: auto !important;
+}
+
+.chatbot-area input {
+  cursor: text !important;
+}
+
+.chatbot-area button {
+  cursor: pointer !important;
+}
